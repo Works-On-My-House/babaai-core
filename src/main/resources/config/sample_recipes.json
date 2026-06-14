@@ -1,0 +1,3874 @@
+{
+  "recipes": [
+    {
+      "name": "Tomato Pasta",
+      "category": "Pasta",
+      "preparation": "Boil pasta until al dente. Sauté garlic in olive oil, add chopped tomatoes, and simmer for 10 minutes. Toss with pasta and fresh basil.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Stir Fry",
+      "category": "Asian",
+      "preparation": "Slice chicken and vegetables. Stir-fry chicken until golden, add peppers and soy sauce, then serve over steamed rice.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Soy Sauce",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 200,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Greek Salad",
+      "category": "Salad",
+      "preparation": "Chop tomatoes, cucumber, and onion. Combine with feta and olive oil. Season with oregano and serve chilled.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cucumber",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Feta Cheese",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Scrambled Eggs",
+      "category": "Breakfast",
+      "preparation": "Whisk eggs with milk and salt. Melt butter in a pan over low heat and gently scramble until creamy.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 1,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 50,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Salt",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Pancakes",
+      "category": "Breakfast",
+      "preparation": "Mix flour, eggs, milk, and sugar into a smooth batter. Cook small ladles in a buttered pan until golden on both sides.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 250,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Beef Stew",
+      "category": "Main Course",
+      "preparation": "Brown beef cubes, add diced potato, carrot, and onion. Cover with water, simmer for 90 minutes until tender.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Potato",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Vegetable Soup",
+      "category": "Soup",
+      "preparation": "Sauté onion, garlic, and celery. Add diced carrot, potato, and tomato. Cover with water and simmer for 40 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Potato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Celery",
+          "quantity": 2,
+          "unit": "stalks"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Cheese Sandwich",
+      "category": "Snack",
+      "preparation": "Butter bread slices, layer cheese between them, and grill in a pan until golden and melted.",
+      "ingredients": [
+        {
+          "product_name": "Bread",
+          "quantity": 2,
+          "unit": "slices"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Fried Rice",
+      "category": "Asian",
+      "preparation": "Stir-fry garlic and onion, add cooked rice and soy sauce. Push rice aside, scramble eggs in the pan, then mix everything together.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Soy Sauce",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Cheese Omelette",
+      "category": "Breakfast",
+      "preparation": "Beat eggs with milk. Cook in buttered pan, add grated cheese, fold, and serve immediately.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 1,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 30,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Pasta Carbonara",
+      "category": "Pasta",
+      "preparation": "Cook pasta. Fry bacon with garlic. Mix eggs and parmesan, toss with hot pasta and bacon off the heat to create a creamy sauce.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Bacon",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Parmesan",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 1,
+          "unit": "clove"
+        }
+      ]
+    },
+    {
+      "name": "Mushroom Risotto",
+      "category": "Main Course",
+      "preparation": "Sauté onion and mushrooms in butter. Add rice gradually with stock, stirring until creamy. Finish with parmesan.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Mushroom",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Parmesan",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Chocolate Chip Cookies",
+      "category": "Dessert",
+      "preparation": "Cream butter and sugar until fluffy. Beat in the egg, then fold in flour and chocolate chips. Drop spoonfuls onto a tray and bake at 180°C for 12 minutes until golden at the edges.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Chocolate",
+          "quantity": 150,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Classic Pancakes with Honey",
+      "category": "Dessert",
+      "preparation": "Whisk flour, milk, eggs, and sugar into a smooth batter. Cook small rounds in a buttered pan until bubbles form, flip, and serve drizzled with honey.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 250,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Banana Bread",
+      "category": "Dessert",
+      "preparation": "Mash the bananas and mix with melted butter, sugar, and egg. Fold in the flour, pour into a loaf tin, and bake at 175°C for 50 minutes until a skewer comes out clean.",
+      "ingredients": [
+        {
+          "product_name": "Banana",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 220,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Chocolate Mug Cake",
+      "category": "Dessert",
+      "preparation": "Stir flour, sugar, cocoa, milk, and oil together in a large mug until smooth. Microwave on high for about 90 seconds until risen and set, then enjoy warm.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 4,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Cocoa",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Tacos",
+      "category": "Mexican",
+      "preparation": "Season chicken with cumin and chili. Warm tortillas, fill with chicken, onion, and cilantro. Serve with lime.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cilantro",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Beef Burrito Bowl",
+      "category": "Mexican",
+      "preparation": "Cook rice and seasoned beef. Layer with black beans, corn, tomato, and cheese in a bowl.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Black Beans",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Corn",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 80,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Guacamole",
+      "category": "Mexican",
+      "preparation": "Mash ripe avocados with lime, salt, onion, and tomato. Serve immediately with chips.",
+      "ingredients": [
+        {
+          "product_name": "Avocado",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 0.5,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Salt",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Quesadilla",
+      "category": "Mexican",
+      "preparation": "Fill tortillas with chicken and cheese. Pan-fry until golden and cheese melts. Cut into wedges.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Enchiladas",
+      "category": "Mexican",
+      "preparation": "Roll tortillas around beans and cheese. Top with tomato sauce and bake at 180°C for 20 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Tortilla",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Black Beans",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Fish Tacos with Slaw",
+      "category": "Mexican",
+      "preparation": "Pan-sear fish with spices. Serve in warm tortillas with cabbage slaw and lime crema.",
+      "ingredients": [
+        {
+          "product_name": "Fish",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cabbage",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Yogurt",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Mexican Rice",
+      "category": "Mexican",
+      "preparation": "Sauté rice with onion and garlic. Add tomato paste and stock. Simmer until fluffy.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Pico de Gallo",
+      "category": "Mexican",
+      "preparation": "Dice tomato, onion, and jalapeño. Mix with lime juice and cilantro. Chill before serving.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cilantro",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Pork Carnitas Tacos",
+      "category": "Mexican",
+      "preparation": "Slow-cook pork with orange and spices until tender. Shred and crisp in a hot pan. Serve in tortillas.",
+      "ingredients": [
+        {
+          "product_name": "Pork",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Orange",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 8,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Bean and Cheese Nachos",
+      "category": "Mexican",
+      "preparation": "Layer tortilla chips with beans and cheese. Bake until melted. Top with jalapeño and salsa.",
+      "ingredients": [
+        {
+          "product_name": "Tortilla",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Black Beans",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Shrimp Fajitas",
+      "category": "Mexican",
+      "preparation": "Sauté shrimp with bell peppers and onion. Season with cumin and serve with warm tortillas.",
+      "ingredients": [
+        {
+          "product_name": "Shrimp",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Chili con Carne",
+      "category": "Mexican",
+      "preparation": "Brown beef with onion and garlic. Add beans, tomatoes, and chili spices. Simmer 45 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Black Beans",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Skewers",
+      "category": "BBQ & Grill",
+      "preparation": "Marinate chicken cubes in lemon, garlic, and olive oil. Thread onto skewers and grill until charred.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "BBQ Pulled Pork",
+      "category": "BBQ & Grill",
+      "preparation": "Rub pork shoulder with spices. Slow-roast until tender, then shred and mix with BBQ sauce.",
+      "ingredients": [
+        {
+          "product_name": "Pork",
+          "quantity": 800,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 4,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 200,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Salmon",
+      "category": "BBQ & Grill",
+      "preparation": "Brush salmon with olive oil, lemon, and dill. Grill skin-side down until flaky.",
+      "ingredients": [
+        {
+          "product_name": "Salmon",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Dill",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Beef Burger",
+      "category": "BBQ & Grill",
+      "preparation": "Form beef patties, season, and grill. Serve on buns with lettuce, tomato, and cheese.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lettuce",
+          "quantity": 4,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 4,
+          "unit": "slices"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Vegetable Platter",
+      "category": "BBQ & Grill",
+      "preparation": "Slice zucchini, bell pepper, and eggplant. Brush with olive oil and grill until tender.",
+      "ingredients": [
+        {
+          "product_name": "Zucchini",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Eggplant",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Lamb Chops with Rosemary",
+      "category": "BBQ & Grill",
+      "preparation": "Rub lamb chops with rosemary, garlic, and olive oil. Grill 4 minutes per side for medium.",
+      "ingredients": [
+        {
+          "product_name": "Lamb",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Rosemary",
+          "quantity": 2,
+          "unit": "sprigs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "BBQ Chicken Wings",
+      "category": "BBQ & Grill",
+      "preparation": "Toss wings in spice rub. Grill or bake until crispy. Glaze with BBQ sauce before serving.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 600,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Paprika",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Halloumi",
+      "category": "BBQ & Grill",
+      "preparation": "Slice halloumi and grill until golden. Serve with lemon and fresh herbs.",
+      "ingredients": [
+        {
+          "product_name": "Halloumi",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 1,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Pork Ribs",
+      "category": "BBQ & Grill",
+      "preparation": "Season ribs and wrap in foil. Bake low and slow, then finish on the grill with sauce.",
+      "ingredients": [
+        {
+          "product_name": "Pork",
+          "quantity": 900,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 4,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Paprika",
+          "quantity": 2,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Corn on the Cob",
+      "category": "BBQ & Grill",
+      "preparation": "Brush corn with butter and grill until lightly charred. Season with salt and lime.",
+      "ingredients": [
+        {
+          "product_name": "Corn",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Salt",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Garlic Butter Shrimp",
+      "category": "Seafood",
+      "preparation": "Sauté shrimp in butter with garlic and parsley. Serve with lemon wedges.",
+      "ingredients": [
+        {
+          "product_name": "Shrimp",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 4,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Parsley",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Baked Cod with Herbs",
+      "category": "Seafood",
+      "preparation": "Place cod fillets in a dish. Top with olive oil, lemon, and herbs. Bake at 200°C for 15 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Cod",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Parsley",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Seafood Paella",
+      "category": "Seafood",
+      "preparation": "Sauté rice with saffron, then add stock, shrimp, and mussels. Cook until rice is tender.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Shrimp",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Mussels",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Tuna Salad Sandwich",
+      "category": "Seafood",
+      "preparation": "Mix canned tuna with mayo, celery, and onion. Serve on bread with lettuce.",
+      "ingredients": [
+        {
+          "product_name": "Tuna",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Mayonnaise",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Celery",
+          "quantity": 2,
+          "unit": "stalks"
+        },
+        {
+          "product_name": "Lettuce",
+          "quantity": 4,
+          "unit": "leaves"
+        }
+      ]
+    },
+    {
+      "name": "Lemon Herb Salmon",
+      "category": "Seafood",
+      "preparation": "Marinate salmon in lemon, dill, and olive oil. Bake at 190°C for 12 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Salmon",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Dill",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Fish and Chips",
+      "category": "Seafood",
+      "preparation": "Coat white fish in batter and deep-fry until golden. Serve with crispy potato fries.",
+      "ingredients": [
+        {
+          "product_name": "Fish",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Potato",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Oil",
+          "quantity": 500,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Shrimp Fried Rice",
+      "category": "Seafood",
+      "preparation": "Stir-fry cooked rice with shrimp, egg, peas, and soy sauce until heated through.",
+      "ingredients": [
+        {
+          "product_name": "Shrimp",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Peas",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Soy Sauce",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Mussels in White Wine",
+      "category": "Seafood",
+      "preparation": "Steam mussels with garlic, shallots, and white wine. Finish with parsley and butter.",
+      "ingredients": [
+        {
+          "product_name": "Mussels",
+          "quantity": 800,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 4,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 40,
+          "unit": "g"
+        },
+        {
+          "product_name": "Parsley",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Fresh Lemonade",
+      "category": "Drink",
+      "preparation": "Juice lemons and mix with water and sugar. Serve over ice with mint.",
+      "ingredients": [
+        {
+          "product_name": "Lemon",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Water",
+          "quantity": 1,
+          "unit": "l"
+        },
+        {
+          "product_name": "Mint",
+          "quantity": 10,
+          "unit": "leaves"
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee",
+      "category": "Drink",
+      "preparation": "Brew strong coffee and chill. Serve over ice with milk and a touch of sugar.",
+      "ingredients": [
+        {
+          "product_name": "Coffee",
+          "quantity": 200,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 150,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Ice",
+          "quantity": 1,
+          "unit": "cup"
+        }
+      ]
+    },
+    {
+      "name": "Berry Smoothie",
+      "category": "Drink",
+      "preparation": "Blend mixed berries with yogurt, banana, and honey until smooth.",
+      "ingredients": [
+        {
+          "product_name": "Berries",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Yogurt",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Banana",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Hot Chocolate",
+      "category": "Drink",
+      "preparation": "Heat milk and whisk in cocoa and sugar until frothy. Top with whipped cream.",
+      "ingredients": [
+        {
+          "product_name": "Milk",
+          "quantity": 400,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Cocoa",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 50,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Mango Lassi",
+      "category": "Drink",
+      "preparation": "Blend mango pulp with yogurt, milk, and a pinch of cardamom. Serve chilled.",
+      "ingredients": [
+        {
+          "product_name": "Mango",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Yogurt",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 100,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Green Smoothie",
+      "category": "Drink",
+      "preparation": "Blend spinach, banana, apple, and water until smooth and bright green.",
+      "ingredients": [
+        {
+          "product_name": "Spinach",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Banana",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Apple",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Water",
+          "quantity": 200,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Penne Arrabbiata",
+      "category": "Pasta",
+      "preparation": "Cook penne. Sauté garlic and chili in olive oil, add tomatoes, and toss with pasta.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Lasagna",
+      "category": "Pasta",
+      "preparation": "Layer pasta sheets with meat sauce, ricotta, and mozzarella. Bake at 180°C for 40 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Beef",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 300,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Pesto Pasta",
+      "category": "Pasta",
+      "preparation": "Blend basil, pine nuts, parmesan, and olive oil into pesto. Toss with cooked pasta.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Parmesan",
+          "quantity": 60,
+          "unit": "g"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 4,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Spaghetti Bolognese",
+      "category": "Pasta",
+      "preparation": "Simmer minced beef with tomato, onion, and herbs. Serve over spaghetti.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Beef",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Mac and Cheese",
+      "category": "Pasta",
+      "preparation": "Cook macaroni. Make a cheese sauce with butter, flour, milk, and cheddar. Combine and bake.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 400,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 40,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Lemon Garlic Pasta",
+      "category": "Pasta",
+      "preparation": "Toss cooked spaghetti with olive oil, lemon zest, garlic, and parmesan.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Parmesan",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Spinach Ricotta Ravioli",
+      "category": "Pasta",
+      "preparation": "Fill pasta with spinach and ricotta. Boil until they float. Serve with butter and sage.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Spinach",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 40,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Seafood Linguine",
+      "category": "Pasta",
+      "preparation": "Sauté shrimp and garlic. Add white wine and toss with linguine and parsley.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Shrimp",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Parsley",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Pad Thai",
+      "category": "Asian",
+      "preparation": "Stir-fry rice noodles with egg, tofu, bean sprouts, and tamarind sauce. Garnish with peanuts.",
+      "ingredients": [
+        {
+          "product_name": "Rice Noodles",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tofu",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bean Sprouts",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Peanuts",
+          "quantity": 30,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Teriyaki",
+      "category": "Asian",
+      "preparation": "Glaze chicken with soy, mirin, and sugar. Pan-fry until sticky. Serve with rice.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Soy Sauce",
+          "quantity": 4,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Ginger",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Vegetable Dumplings",
+      "category": "Asian",
+      "preparation": "Fill wrappers with cabbage and mushroom mix. Steam until translucent. Serve with soy dip.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cabbage",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Mushroom",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Soy Sauce",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Beef Pho",
+      "category": "Asian",
+      "preparation": "Simmer beef broth with star anise and ginger. Serve over rice noodles with thin beef slices.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Rice Noodles",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Ginger",
+          "quantity": 30,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Sweet and Sour Pork",
+      "category": "Asian",
+      "preparation": "Coat pork in batter and fry. Toss with bell pepper and sweet-sour sauce. Serve with rice.",
+      "ingredients": [
+        {
+          "product_name": "Pork",
+          "quantity": 350,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Vinegar",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Miso Soup",
+      "category": "Asian",
+      "preparation": "Dissolve miso in dashi stock. Add tofu cubes and wakame. Simmer gently without boiling.",
+      "ingredients": [
+        {
+          "product_name": "Tofu",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Miso",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Water",
+          "quantity": 600,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Green Onion",
+          "quantity": 2,
+          "unit": "stalks"
+        }
+      ]
+    },
+    {
+      "name": "Korean Bibimbap",
+      "category": "Asian",
+      "preparation": "Arrange rice with sautéed vegetables, beef, and fried egg. Mix with gochujang before eating.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Beef",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Spinach",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Spring Rolls",
+      "category": "Asian",
+      "preparation": "Fill rice paper with shrimp, herbs, and vermicelli. Roll tightly and serve with dipping sauce.",
+      "ingredients": [
+        {
+          "product_name": "Rice Paper",
+          "quantity": 8,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Shrimp",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lettuce",
+          "quantity": 4,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Rice Noodles",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Thai Green Curry",
+      "category": "Asian",
+      "preparation": "Simmer chicken in coconut milk with green curry paste and vegetables.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 350,
+          "unit": "g"
+        },
+        {
+          "product_name": "Coconut Milk",
+          "quantity": 400,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Sushi Rolls",
+      "category": "Asian",
+      "preparation": "Spread rice on nori, add fish and avocado, roll tightly, and slice.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Salmon",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Avocado",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Seaweed",
+          "quantity": 4,
+          "unit": "sheets"
+        }
+      ]
+    },
+    {
+      "name": "Caesar Salad",
+      "category": "Salad",
+      "preparation": "Toss romaine with parmesan, croutons, and Caesar dressing.",
+      "ingredients": [
+        {
+          "product_name": "Lettuce",
+          "quantity": 1,
+          "unit": "head"
+        },
+        {
+          "product_name": "Parmesan",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 1,
+          "unit": "clove"
+        }
+      ]
+    },
+    {
+      "name": "Caprese Salad",
+      "category": "Salad",
+      "preparation": "Layer tomato slices with mozzarella and basil. Drizzle with olive oil and balsamic.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Mozzarella",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 10,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Quinoa Salad",
+      "category": "Salad",
+      "preparation": "Mix cooked quinoa with cucumber, tomato, feta, and lemon dressing.",
+      "ingredients": [
+        {
+          "product_name": "Quinoa",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cucumber",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Feta",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Coleslaw",
+      "category": "Salad",
+      "preparation": "Shred cabbage and carrot. Toss with mayonnaise, vinegar, and sugar. Chill before serving.",
+      "ingredients": [
+        {
+          "product_name": "Cabbage",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Mayonnaise",
+          "quantity": 4,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Vinegar",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Spinach Strawberry Salad",
+      "category": "Salad",
+      "preparation": "Combine spinach, sliced strawberries, and goat cheese. Dress with balsamic.",
+      "ingredients": [
+        {
+          "product_name": "Spinach",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Strawberries",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Tuna Nicoise Salad",
+      "category": "Salad",
+      "preparation": "Arrange lettuce with tuna, boiled egg, green beans, and olives.",
+      "ingredients": [
+        {
+          "product_name": "Tuna",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Green Beans",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lettuce",
+          "quantity": 1,
+          "unit": "head"
+        },
+        {
+          "product_name": "Olives",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Chickpea Salad",
+      "category": "Salad",
+      "preparation": "Mix chickpeas with tomato, cucumber, onion, and lemon-herb dressing.",
+      "ingredients": [
+        {
+          "product_name": "Chickpeas",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cucumber",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 0.5,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Avocado Tomato Salad",
+      "category": "Salad",
+      "preparation": "Combine diced avocado and tomato with red onion and lime juice.",
+      "ingredients": [
+        {
+          "product_name": "Avocado",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 0.5,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lime",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "French Toast",
+      "category": "Breakfast",
+      "preparation": "Dip bread in egg and milk mixture. Pan-fry until golden. Serve with maple syrup.",
+      "ingredients": [
+        {
+          "product_name": "Bread",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 100,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 30,
+          "unit": "g"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Avocado Toast",
+      "category": "Breakfast",
+      "preparation": "Toast bread and top with mashed avocado, lemon, and chili flakes.",
+      "ingredients": [
+        {
+          "product_name": "Bread",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Avocado",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 0.5,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Overnight Oats",
+      "category": "Breakfast",
+      "preparation": "Mix oats with milk and yogurt. Refrigerate overnight. Top with berries in the morning.",
+      "ingredients": [
+        {
+          "product_name": "Oats",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 150,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Yogurt",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Berries",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Shakshuka",
+      "category": "Breakfast",
+      "preparation": "Simmer tomatoes with peppers and spices. Poach eggs in the sauce and serve with bread.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 4,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Breakfast Burrito",
+      "category": "Breakfast",
+      "preparation": "Scramble eggs with sausage and cheese. Wrap in a warm tortilla.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 60,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Granola Bowl",
+      "category": "Breakfast",
+      "preparation": "Serve granola with yogurt and fresh fruit. Drizzle with honey.",
+      "ingredients": [
+        {
+          "product_name": "Oats",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Yogurt",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Berries",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Smoked Salmon Bagel",
+      "category": "Breakfast",
+      "preparation": "Spread cream cheese on a bagel. Top with smoked salmon, capers, and red onion.",
+      "ingredients": [
+        {
+          "product_name": "Bread",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Salmon",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cream Cheese",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 0.25,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Egg Muffins",
+      "category": "Breakfast",
+      "preparation": "Whisk eggs with vegetables and cheese. Bake in muffin tins at 180°C for 20 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Spinach",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Waffles",
+      "category": "Breakfast",
+      "preparation": "Mix batter and cook in a waffle iron until crisp. Serve with berries and syrup.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 250,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Berries",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Greek Yogurt Parfait",
+      "category": "Breakfast",
+      "preparation": "Layer yogurt with granola and honey. Top with nuts and fresh fruit.",
+      "ingredients": [
+        {
+          "product_name": "Yogurt",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Oats",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Berries",
+          "quantity": 80,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Roast Chicken",
+      "category": "Main Course",
+      "preparation": "Rub chicken with herbs and butter. Roast at 200°C until juices run clear.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 1200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 50,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 4,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Rosemary",
+          "quantity": 2,
+          "unit": "sprigs"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Shepherd's Pie",
+      "category": "Main Course",
+      "preparation": "Top seasoned minced lamb and vegetables with mashed potato. Bake until golden.",
+      "ingredients": [
+        {
+          "product_name": "Lamb",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Potato",
+          "quantity": 600,
+          "unit": "g"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 40,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Parmesan",
+      "category": "Main Course",
+      "preparation": "Bread chicken cutlets, fry, top with marinara and mozzarella. Bake until bubbly.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Beef Lasagna",
+      "category": "Main Course",
+      "preparation": "Layer pasta with rich beef ragù and béchamel. Bake until the top is golden.",
+      "ingredients": [
+        {
+          "product_name": "Pasta",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Beef",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 300,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Stuffed Bell Peppers",
+      "category": "Main Course",
+      "preparation": "Fill peppers with rice, beef, and tomato sauce. Bake at 180°C for 35 minutes.",
+      "ingredients": [
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Beef",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 200,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Pork Schnitzel",
+      "category": "Main Course",
+      "preparation": "Pound pork thin, bread, and pan-fry until golden. Serve with lemon.",
+      "ingredients": [
+        {
+          "product_name": "Pork",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Vegetable Curry",
+      "category": "Main Course",
+      "preparation": "Simmer mixed vegetables in coconut milk and curry spices. Serve with rice.",
+      "ingredients": [
+        {
+          "product_name": "Potato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Coconut Milk",
+          "quantity": 400,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Meatballs in Tomato Sauce",
+      "category": "Main Course",
+      "preparation": "Simmer beef meatballs in tomato sauce. Serve over pasta or with bread.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Tikka Masala",
+      "category": "Main Course",
+      "preparation": "Marinate chicken in yogurt and spices. Grill, then simmer in creamy tomato sauce.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Yogurt",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 100,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Eggplant Parmesan",
+      "category": "Main Course",
+      "preparation": "Bread and fry eggplant slices. Layer with marinara and cheese, then bake.",
+      "ingredients": [
+        {
+          "product_name": "Eggplant",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 350,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 80,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Fish Pie",
+      "category": "Main Course",
+      "preparation": "Layer white fish and peas in creamy sauce. Top with mashed potato and bake.",
+      "ingredients": [
+        {
+          "product_name": "Fish",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Potato",
+          "quantity": 600,
+          "unit": "g"
+        },
+        {
+          "product_name": "Peas",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 200,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Beef Tacos",
+      "category": "Main Course",
+      "preparation": "Cook seasoned ground beef. Serve in tortillas with lettuce, tomato, and cheese.",
+      "ingredients": [
+        {
+          "product_name": "Beef",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Tortilla",
+          "quantity": 8,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Lettuce",
+          "quantity": 4,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Ratatouille",
+      "category": "Main Course",
+      "preparation": "Stew eggplant, zucchini, tomato, and pepper with herbs until tender.",
+      "ingredients": [
+        {
+          "product_name": "Eggplant",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Zucchini",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Honey Garlic Pork",
+      "category": "Main Course",
+      "preparation": "Sear pork chops and glaze with honey, soy, and garlic. Serve with steamed rice.",
+      "ingredients": [
+        {
+          "product_name": "Pork",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Soy Sauce",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Rice",
+          "quantity": 250,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Tomato Basil Soup",
+      "category": "Soup",
+      "preparation": "Simmer tomatoes with onion and garlic. Blend smooth and stir in fresh basil.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 800,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 3,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 10,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Noodle Soup",
+      "category": "Soup",
+      "preparation": "Simmer chicken with carrots, celery, and noodles in seasoned broth.",
+      "ingredients": [
+        {
+          "product_name": "Chicken",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Pasta",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Celery",
+          "quantity": 2,
+          "unit": "stalks"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Lentil Soup",
+      "category": "Soup",
+      "preparation": "Cook lentils with onion, carrot, and cumin until soft. Blend partially for texture.",
+      "ingredients": [
+        {
+          "product_name": "Lentils",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Cumin",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Minestrone",
+      "category": "Soup",
+      "preparation": "Simmer beans, pasta, and seasonal vegetables in tomato broth.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Beans",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Pasta",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Carrot",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Celery",
+          "quantity": 2,
+          "unit": "stalks"
+        }
+      ]
+    },
+    {
+      "name": "Cream of Mushroom Soup",
+      "category": "Soup",
+      "preparation": "Sauté mushrooms with onion. Add stock and cream, then blend until silky.",
+      "ingredients": [
+        {
+          "product_name": "Mushroom",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 150,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 40,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        }
+      ]
+    },
+    {
+      "name": "Butternut Squash Soup",
+      "category": "Soup",
+      "preparation": "Roast squash, then blend with onion, stock, and a touch of cream.",
+      "ingredients": [
+        {
+          "product_name": "Butternut Squash",
+          "quantity": 800,
+          "unit": "g"
+        },
+        {
+          "product_name": "Onion",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 100,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 30,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "French Onion Soup",
+      "category": "Soup",
+      "preparation": "Caramelize onions slowly. Add broth and serve topped with toasted bread and cheese.",
+      "ingredients": [
+        {
+          "product_name": "Onion",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Beef",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 40,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Gazpacho",
+      "category": "Soup",
+      "preparation": "Blend ripe tomatoes, cucumber, pepper, and olive oil. Chill and serve cold.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 600,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cucumber",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Bell Pepper",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 1,
+          "unit": "clove"
+        }
+      ]
+    },
+    {
+      "name": "Hummus",
+      "category": "Snack",
+      "preparation": "Blend chickpeas with tahini, lemon, and garlic until smooth. Serve with pita.",
+      "ingredients": [
+        {
+          "product_name": "Chickpeas",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Lemon",
+          "quantity": 1,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 2,
+          "unit": "pcs"
+        }
+      ]
+    },
+    {
+      "name": "Stuffed Mushrooms",
+      "category": "Snack",
+      "preparation": "Fill mushroom caps with breadcrumb, garlic, and cheese. Bake until golden.",
+      "ingredients": [
+        {
+          "product_name": "Mushroom",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Bread",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Parsley",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Bruschetta",
+      "category": "Snack",
+      "preparation": "Top toasted bread with diced tomato, basil, and olive oil.",
+      "ingredients": [
+        {
+          "product_name": "Bread",
+          "quantity": 1,
+          "unit": "loaf"
+        },
+        {
+          "product_name": "Tomato",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 10,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Deviled Eggs",
+      "category": "Snack",
+      "preparation": "Halve boiled eggs and fill with mashed yolk, mayo, and mustard.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Mayonnaise",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Mustard",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Paprika",
+          "quantity": 0.5,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Cheese Quesadilla",
+      "category": "Snack",
+      "preparation": "Melt cheese between tortillas in a hot pan. Cut into triangles.",
+      "ingredients": [
+        {
+          "product_name": "Tortilla",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cheese",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 20,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Popcorn",
+      "category": "Snack",
+      "preparation": "Heat oil and pop corn kernels. Season with salt and melted butter.",
+      "ingredients": [
+        {
+          "product_name": "Corn",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 30,
+          "unit": "g"
+        },
+        {
+          "product_name": "Salt",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Caprese Skewers",
+      "category": "Snack",
+      "preparation": "Thread cherry tomatoes, mozzarella balls, and basil onto skewers.",
+      "ingredients": [
+        {
+          "product_name": "Tomato",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Mozzarella",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Basil",
+          "quantity": 10,
+          "unit": "leaves"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "name": "Pita Chips",
+      "category": "Snack",
+      "preparation": "Cut pita into triangles, brush with olive oil, and bake until crisp.",
+      "ingredients": [
+        {
+          "product_name": "Bread",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Olive Oil",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Salt",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Paprika",
+          "quantity": 0.5,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Apple Pie",
+      "category": "Dessert",
+      "preparation": "Fill a pastry crust with spiced apple slices. Bake at 190°C until golden.",
+      "ingredients": [
+        {
+          "product_name": "Apple",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cinnamon",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "name": "Tiramisu",
+      "category": "Dessert",
+      "preparation": "Layer coffee-soaked ladyfingers with mascarpone cream. Chill and dust with cocoa.",
+      "ingredients": [
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Coffee",
+          "quantity": 200,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Cocoa",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 250,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Brownies",
+      "category": "Dessert",
+      "preparation": "Melt chocolate with butter, mix with eggs and flour. Bake until fudgy.",
+      "ingredients": [
+        {
+          "product_name": "Chocolate",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 150,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Cheesecake",
+      "category": "Dessert",
+      "preparation": "Mix cream cheese, sugar, and eggs. Bake on a biscuit base until set. Chill overnight.",
+      "ingredients": [
+        {
+          "product_name": "Cream Cheese",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Fruit Salad",
+      "category": "Dessert",
+      "preparation": "Combine seasonal fruit with a drizzle of honey and mint.",
+      "ingredients": [
+        {
+          "product_name": "Apple",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Banana",
+          "quantity": 2,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Berries",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Honey",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "product_name": "Mint",
+          "quantity": 5,
+          "unit": "leaves"
+        }
+      ]
+    },
+    {
+      "name": "Lemon Bars",
+      "category": "Dessert",
+      "preparation": "Bake a shortbread base, pour lemon custard on top, and bake until set.",
+      "ingredients": [
+        {
+          "product_name": "Lemon",
+          "quantity": 4,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 120,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Rice Pudding",
+      "category": "Dessert",
+      "preparation": "Simmer rice with milk, sugar, and vanilla until creamy. Serve warm or chilled.",
+      "ingredients": [
+        {
+          "product_name": "Rice",
+          "quantity": 150,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 600,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 20,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Chocolate Mousse",
+      "category": "Dessert",
+      "preparation": "Whip cream and fold into melted chocolate and egg yolks. Chill until set.",
+      "ingredients": [
+        {
+          "product_name": "Chocolate",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Eggs",
+          "quantity": 3,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 200,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 50,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Strawberry Shortcake",
+      "category": "Dessert",
+      "preparation": "Layer biscuits with whipped cream and macerated strawberries.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "product_name": "Strawberries",
+          "quantity": 300,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cream",
+          "quantity": 250,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 80,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Cinnamon Rolls",
+      "category": "Dessert",
+      "preparation": "Roll yeasted dough with cinnamon butter. Bake and glaze with icing.",
+      "ingredients": [
+        {
+          "product_name": "Flour",
+          "quantity": 400,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 100,
+          "unit": "g"
+        },
+        {
+          "product_name": "Cinnamon",
+          "quantity": 2,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 200,
+          "unit": "ml"
+        }
+      ]
+    },
+    {
+      "name": "Panna Cotta",
+      "category": "Dessert",
+      "preparation": "Heat cream with sugar and gelatin. Pour into molds and chill until set.",
+      "ingredients": [
+        {
+          "product_name": "Cream",
+          "quantity": 400,
+          "unit": "ml"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 60,
+          "unit": "g"
+        },
+        {
+          "product_name": "Vanilla",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "product_name": "Berries",
+          "quantity": 100,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "name": "Peach Cobbler",
+      "category": "Dessert",
+      "preparation": "Top sliced peaches with a biscuit topping. Bake until bubbling and golden.",
+      "ingredients": [
+        {
+          "product_name": "Peach",
+          "quantity": 6,
+          "unit": "pcs"
+        },
+        {
+          "product_name": "Flour",
+          "quantity": 200,
+          "unit": "g"
+        },
+        {
+          "product_name": "Sugar",
+          "quantity": 120,
+          "unit": "g"
+        },
+        {
+          "product_name": "Butter",
+          "quantity": 80,
+          "unit": "g"
+        },
+        {
+          "product_name": "Milk",
+          "quantity": 100,
+          "unit": "ml"
+        }
+      ]
+    }
+  ]
+}

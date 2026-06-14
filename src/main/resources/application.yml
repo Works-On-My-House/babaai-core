@@ -1,0 +1,50 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: babaai-core
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+babaai:
+  jwt:
+    expire-minutes: ${JWT_EXPIRE_MINUTES}
+    key-path: ${JWT_KEY_PATH}
+  cors:
+    allowed-origins: ${CORS_ORIGINS}
+  ai:
+    base-url: ${AI_SERVICE_URL}
+    service-token: ${AI_SERVICE_TOKEN}
+  defaults:
+    min-match-percent: ${DEFAULT_MIN_MATCH_PERCENT}
+    suggestion-limit: ${DEFAULT_SUGGESTION_LIMIT}
+    page-size: ${DEFAULT_PAGE_SIZE}
+    ingredient-category: ${DEFAULT_INGREDIENT_CATEGORY}
+  config:
+    ingredient-categories-path: ${INGREDIENT_CATEGORY_CONFIG_PATH:classpath:config/ingredient_categories.json}
+    unit-conversion-path: ${UNIT_CONVERSION_CONFIG_PATH:classpath:config/unit_conversion.json}
+    sample-recipes-path: ${SEED_RECIPES_CONFIG_PATH:classpath:config/sample_recipes.json}
+    app-defaults-path: ${APP_DEFAULTS_CONFIG_PATH:classpath:config/app_defaults.json}
+    recipe-categories-path: ${RECIPE_CATEGORIES_CONFIG_PATH:classpath:config/recipe_categories.json}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

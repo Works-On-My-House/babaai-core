@@ -1,0 +1,15 @@
+{
+  "ingredient_categories": [
+    "Vegetables",
+    "Fruits",
+    "Dairy",
+    "Meat & Fish",
+    "Grains & Pasta",
+    "Spices & Herbs",
+    "Beverages",
+    "Canned & Jarred",
+    "Frozen",
+    "Other"
+  ],
+  "ingredient_units": ["g", "kg", "ml", "L", "pcs", "tbsp", "tsp", "cup", "oz", "lb"]
+}

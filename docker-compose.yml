@@ -1,0 +1,44 @@
+# BabaAI core service (+ PostgreSQL)
+#
+#   cp .env.example .env
+#   docker compose up --build
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: babaai-postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: babaai-core
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${CORE_PORT}:8081"
+    volumes:
+      - core_keys:/app/keys
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  postgres_data:
+  core_keys:
