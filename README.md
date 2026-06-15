@@ -61,3 +61,19 @@ Seed and reference JSON lives in `src/main/resources/config/` (overridable via `
 - `sample_recipes.json` — catalog seed
 - `ingredient_categories.json` — pantry categories
 - `recipe_categories.json` — recipe tags
+
+## Tests
+
+Integration tests use PostgreSQL via Testcontainers (Docker required locally).
+
+```bash
+./gradlew test
+```
+
+**Windows + Docker Desktop:** if tests fail with `Could not find a valid Docker environment`, ensure Docker Desktop is running. The Gradle `test` task sets `DOCKER_HOST` to the `dockerDesktopLinuxEngine` pipe automatically. If you run tests from the IDE only, set environment variable `DOCKER_HOST=npipe:////./pipe/dockerDesktopLinuxEngine` in your run configuration, or remove `docker.client.strategy` from `%USERPROFILE%\.testcontainers.properties` if that file forces the wrong pipe.
+
+### CI checks
+
+On every push to `main` and on pull requests, GitHub Actions runs:
+
+- `./gradlew bootJar test` — compile, unit tests, and Testcontainers integration tests for auth, ingredients, and recipes APIs
