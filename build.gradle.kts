@@ -17,6 +17,12 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.testcontainers:testcontainers-bom:1.21.4")
+    }
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-jackson")
@@ -34,8 +40,17 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:postgresql")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+
+    // Docker Desktop 4.x on Windows exposes Linux engine via a non-default named pipe.
+    // Without this, Testcontainers may hit docker_cli and fail with "Could not find a valid Docker environment".
+    if (System.getProperty("os.name").lowercase().contains("windows")) {
+        environment("DOCKER_HOST", "npipe:////./pipe/dockerDesktopLinuxEngine")
+    }
 }
