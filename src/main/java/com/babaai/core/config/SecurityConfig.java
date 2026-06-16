@@ -50,6 +50,8 @@ public class SecurityConfig {
             new PublicEndpoint(null, "/api/v1/config/**"),
             new PublicEndpoint(HttpMethod.POST, "/api/v1/auth/register"),
             new PublicEndpoint(HttpMethod.POST, "/api/v1/auth/login"),
+            new PublicEndpoint(HttpMethod.POST, "/api/v1/auth/refresh"),
+            new PublicEndpoint(HttpMethod.POST, "/api/v1/auth/logout"),
             new PublicEndpoint(HttpMethod.GET, "/api/v1/recipes"),
             new PublicEndpoint(HttpMethod.GET, "/api/v1/recipes/categories"),
             new PublicEndpoint(HttpMethod.GET, "/api/v1/recipes/featured"),

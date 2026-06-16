@@ -42,6 +42,11 @@ public class AppProperties {
     public static class Jwt {
         private int expireMinutes;
         private String keyPath;
+        private int refreshExpireDays = 30;
+        private String refreshCookieName = "refresh_token";
+        private boolean refreshCookieSecure = true;
+        private String refreshCookieSameSite = "Lax";
+        private String refreshCookiePath = "/";
 
         public int getExpireMinutes() {
             return expireMinutes;
@@ -57,6 +62,46 @@ public class AppProperties {
 
         public void setKeyPath(String keyPath) {
             this.keyPath = keyPath;
+        }
+
+        public int getRefreshExpireDays() {
+            return refreshExpireDays;
+        }
+
+        public void setRefreshExpireDays(int refreshExpireDays) {
+            this.refreshExpireDays = refreshExpireDays;
+        }
+
+        public String getRefreshCookieName() {
+            return refreshCookieName;
+        }
+
+        public void setRefreshCookieName(String refreshCookieName) {
+            this.refreshCookieName = refreshCookieName;
+        }
+
+        public boolean isRefreshCookieSecure() {
+            return refreshCookieSecure;
+        }
+
+        public void setRefreshCookieSecure(boolean refreshCookieSecure) {
+            this.refreshCookieSecure = refreshCookieSecure;
+        }
+
+        public String getRefreshCookieSameSite() {
+            return refreshCookieSameSite;
+        }
+
+        public void setRefreshCookieSameSite(String refreshCookieSameSite) {
+            this.refreshCookieSameSite = refreshCookieSameSite;
+        }
+
+        public String getRefreshCookiePath() {
+            return refreshCookiePath;
+        }
+
+        public void setRefreshCookiePath(String refreshCookiePath) {
+            this.refreshCookiePath = refreshCookiePath;
         }
     }
 
