@@ -15,6 +15,9 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     @EntityGraph(attributePaths = {"roles", "roles.permissions", "permissionOverrides", "permissionOverrides.permission"})
     Optional<User> findWithRolesAndPermissionsById(UUID id);
 
+    @EntityGraph(attributePaths = {"roles", "roles.permissions", "permissionOverrides", "permissionOverrides.permission"})
+    Optional<User> findWithRolesAndPermissionsByUsername(String username);
+
     // Direct update: presence is high-frequency, so skip @Version/@PreUpdate (no optimistic-lock churn).
     @Modifying
     @Query("update User u set u.lastSeenAt = :now where u.id = :id")

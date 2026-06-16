@@ -5,6 +5,7 @@ import com.babaai.core.dto.Dtos;
 import com.babaai.core.exception.AppException;
 import com.babaai.core.repository.UserRepository;
 import com.babaai.core.security.JwtService;
+import com.babaai.core.security.PermissionResolver;
 import java.time.Duration;
 import java.time.Instant;
 import org.springframework.http.HttpStatus;
@@ -15,20 +16,30 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class AuthService {
 
-    // Failed-login lockout: lock the account for LOCK_DURATION after MAX_FAILED_ATTEMPTS consecutive
-    // wrong passwords.
     private static final int MAX_FAILED_ATTEMPTS = 5;
     private static final Duration LOCK_DURATION = Duration.ofMinutes(15);
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final PermissionResolver permissionResolver;
+    private final RefreshTokenService refreshTokenService;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
+    public AuthService(
+            UserRepository userRepository,
+            PasswordEncoder passwordEncoder,
+            JwtService jwtService,
+            PermissionResolver permissionResolver,
+            RefreshTokenService refreshTokenService
+    ) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
+        this.permissionResolver = permissionResolver;
+        this.refreshTokenService = refreshTokenService;
     }
+
+    public record IssuedTokens(String accessToken, String refreshToken) {}
 
     @Transactional
     public Dtos.UserResponse register(Dtos.UserCreateRequest request) {
@@ -47,8 +58,8 @@ public class AuthService {
     // noRollbackFor: a wrong password / locked account throws AppException, but we must still COMMIT
     // the failed-attempt counter and lock timestamp (default @Transactional rolls back on it).
     @Transactional(noRollbackFor = AppException.class)
-    public Dtos.TokenResponse login(String username, String password) {
-        User user = userRepository.findByUsername(username)
+    public IssuedTokens login(String username, String password) {
+        User user = userRepository.findWithRolesAndPermissionsByUsername(username)
                 .orElseThrow(() -> new AppException("Incorrect username or password", HttpStatus.UNAUTHORIZED));
 
         Instant now = Instant.now();
@@ -69,11 +80,35 @@ public class AuthService {
             user.setLockedUntil(null);
             userRepository.save(user);
         }
-        return new Dtos.TokenResponse(jwtService.createAccessToken(user.getId()));
+        return issueTokens(user);
+    }
+
+    // noRollbackFor: reuse detection inside rotate() revokes the token family then throws — that
+    // revocation must commit even though refresh fails.
+    @Transactional(noRollbackFor = AppException.class)
+    public IssuedTokens refresh(String rawRefreshToken) {
+        RefreshTokenService.Rotation rotation = refreshTokenService.rotate(rawRefreshToken);
+        User user = userRepository.findWithRolesAndPermissionsById(rotation.userId())
+                .orElseThrow(() -> new AppException("User not found", HttpStatus.UNAUTHORIZED));
+        String accessToken = jwtService.createAccessToken(
+                user.getId(), permissionResolver.effectivePermissions(user), user.getPermissionsVersion());
+        return new IssuedTokens(accessToken, rotation.refreshToken());
+    }
+
+    @Transactional
+    public void logout(String rawRefreshToken) {
+        refreshTokenService.revoke(rawRefreshToken);
     }
 
     public Dtos.UserResponse currentUser(User user) {
         return DtoMapper.toUserResponse(user);
+    }
+
+    private IssuedTokens issueTokens(User user) {
+        String accessToken = jwtService.createAccessToken(
+                user.getId(), permissionResolver.effectivePermissions(user), user.getPermissionsVersion());
+        String refreshToken = refreshTokenService.issue(user.getId());
+        return new IssuedTokens(accessToken, refreshToken);
     }
 
     private void registerFailedAttempt(User user, Instant now) {

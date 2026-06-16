@@ -26,6 +26,11 @@ babaai:
   jwt:
     expire-minutes: ${JWT_EXPIRE_MINUTES}
     key-path: ${JWT_KEY_PATH}
+    refresh-expire-days: ${REFRESH_EXPIRE_DAYS:30}
+    refresh-cookie-name: ${REFRESH_COOKIE_NAME:refresh_token}
+    refresh-cookie-secure: ${REFRESH_COOKIE_SECURE:true}
+    refresh-cookie-same-site: ${REFRESH_COOKIE_SAME_SITE:Lax}
+    refresh-cookie-path: ${REFRESH_COOKIE_PATH:/}
   cors:
     allowed-origins: ${CORS_ORIGINS}
   ai:
