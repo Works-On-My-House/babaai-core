@@ -1,5 +1,8 @@
 package com.babaai.core.config;
 
+import java.time.Duration;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "babaai")
@@ -10,6 +13,7 @@ public class AppProperties {
     private final Ai ai = new Ai();
     private final Defaults defaults = new Defaults();
     private final Config config = new Config();
+    private final Cache cache = new Cache();
 
     public Jwt getJwt() {
         return jwt;
@@ -29,6 +33,10 @@ public class AppProperties {
 
     public Config getConfig() {
         return config;
+    }
+
+    public Cache getCache() {
+        return cache;
     }
 
     public static class Jwt {
@@ -169,6 +177,53 @@ public class AppProperties {
 
         public void setRecipeCategoriesPath(String recipeCategoriesPath) {
             this.recipeCategoriesPath = recipeCategoriesPath;
+        }
+    }
+
+    public static class Cache {
+        private boolean enabled = true;
+        private final CacheSpec defaultSpec = new CacheSpec();
+        private Map<String, CacheSpec> specs = new LinkedHashMap<>();
+
+        public boolean isEnabled() {
+            return enabled;
+        }
+
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
+        }
+
+        public CacheSpec getDefaultSpec() {
+            return defaultSpec;
+        }
+
+        public Map<String, CacheSpec> getSpecs() {
+            return specs;
+        }
+
+        public void setSpecs(Map<String, CacheSpec> specs) {
+            this.specs = specs;
+        }
+    }
+
+    public static class CacheSpec {
+        private long maximumSize = 1_000;
+        private Duration ttl = Duration.ofMinutes(10);
+
+        public long getMaximumSize() {
+            return maximumSize;
+        }
+
+        public void setMaximumSize(long maximumSize) {
+            this.maximumSize = maximumSize;
+        }
+
+        public Duration getTtl() {
+            return ttl;
+        }
+
+        public void setTtl(Duration ttl) {
+            this.ttl = ttl;
         }
     }
 }

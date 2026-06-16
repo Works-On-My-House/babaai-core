@@ -1,44 +1,28 @@
 package com.babaai.core.service;
 
 import com.babaai.core.config.AppProperties;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
-import tools.jackson.databind.json.JsonMapper;
 
 @Component
 public class JsonConfigService {
 
-    private final ResourceLoader resourceLoader;
-    private final JsonMapper jsonMapper;
+    private final JsonConfigCache jsonConfigCache;
     private final AppProperties appProperties;
 
-    public JsonConfigService(
-            ResourceLoader resourceLoader,
-            JsonMapper jsonMapper,
-            AppProperties appProperties
-    ) {
-        this.resourceLoader = resourceLoader;
-        this.jsonMapper = jsonMapper;
+    public JsonConfigService(JsonConfigCache jsonConfigCache, AppProperties appProperties) {
+        this.jsonConfigCache = jsonConfigCache;
         this.appProperties = appProperties;
     }
 
-    @SuppressWarnings("unchecked")
+    // Delegates to the cached loader (PERF-1.4) — file IO + parse happens once per location.
     private Map<String, Object> loadObject(String location) {
-        Resource resource = resourceLoader.getResource(location);
-        try (InputStream inputStream = resource.getInputStream()) {
-            return jsonMapper.readValue(inputStream, Map.class);
-        } catch (IOException ex) {
-            throw new IllegalStateException("Failed to load config: " + location, ex);
-        }
+        return jsonConfigCache.loadObject(location);
     }
 
     private Map<String, Object> unitConversionConfig() {

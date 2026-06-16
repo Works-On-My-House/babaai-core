@@ -1,8 +1,10 @@
 package com.babaai.core.service;
 
 import com.babaai.core.config.AppProperties;
+import com.babaai.core.config.CacheNames;
 import com.babaai.core.dto.ConfigDtos;
 import com.babaai.core.repository.IngredientCategoryRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +25,9 @@ public class ConfigService {
         this.appProperties = appProperties;
     }
 
+    // PERF-1.4: immutable record, semi-static category data — safe to cache. TTL handles staleness;
+    // when category CRUD is added, evict CacheNames.APP_CONFIG on category writes.
+    @Cacheable(CacheNames.APP_CONFIG)
     @Transactional(readOnly = true)
     public ConfigDtos.PublicConfigResponse publicConfig() {
         return new ConfigDtos.PublicConfigResponse(

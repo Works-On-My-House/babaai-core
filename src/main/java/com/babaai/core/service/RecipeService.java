@@ -36,6 +36,7 @@ public class RecipeService {
     private static final int FEATURED_POOL_SIZE = 10;
 
     private final RecipeRepository recipeRepository;
+    private final RecipeCatalogCache recipeCatalogCache;
     private final RecipeFavoriteRepository favoriteRepository;
     private final SuggestionHistoryRepository historyRepository;
     private final IngredientService ingredientService;
@@ -46,6 +47,7 @@ public class RecipeService {
 
     public RecipeService(
             RecipeRepository recipeRepository,
+            RecipeCatalogCache recipeCatalogCache,
             RecipeFavoriteRepository favoriteRepository,
             SuggestionHistoryRepository historyRepository,
             IngredientService ingredientService,
@@ -55,6 +57,7 @@ public class RecipeService {
             JsonConfigService jsonConfigService
     ) {
         this.recipeRepository = recipeRepository;
+        this.recipeCatalogCache = recipeCatalogCache;
         this.favoriteRepository = favoriteRepository;
         this.historyRepository = historyRepository;
         this.ingredientService = ingredientService;
@@ -73,9 +76,9 @@ public class RecipeService {
                 spec,
                 PageRequest.of(safePage - 1, safePageSize, Sort.by("name"))
         );
-        decorate(result.getContent(), userId);
+        FavoriteView fav = favoriteView(result.getContent(), userId);
         return new RecipeDtos.RecipeListResponse(
-                result.getContent().stream().map(DtoMapper::toRecipeResponse).toList(),
+                result.getContent().stream().map(recipe -> mapRecipe(recipe, fav)).toList(),
                 (int) result.getTotalElements(),
                 safePage,
                 safePageSize,
@@ -87,8 +90,7 @@ public class RecipeService {
     public RecipeDtos.RecipeResponse get(UUID recipeId, UUID userId) {
         Recipe recipe = recipeRepository.findWithIngredientsById(recipeId)
                 .orElseThrow(() -> new NotFoundException("Recipe not found"));
-        decorate(List.of(recipe), userId);
-        return DtoMapper.toRecipeResponse(recipe);
+        return mapRecipe(recipe, favoriteView(List.of(recipe), userId));
     }
 
     @Transactional
@@ -97,8 +99,9 @@ public class RecipeService {
                 .orElseThrow(() -> new NotFoundException("Recipe not found"));
         recipe.setViewCount(recipe.getViewCount() + 1);
         recipeRepository.save(recipe);
-        decorate(List.of(recipe), userId);
-        return DtoMapper.toRecipeResponse(recipe);
+        // A view only bumps view_count; the cached catalog's ranking absorbs that staleness via TTL
+        // (no eviction here — views are far too frequent to evict on).
+        return mapRecipe(recipe, favoriteView(List.of(recipe), userId));
     }
 
     @Transactional(readOnly = true)
@@ -122,7 +125,7 @@ public class RecipeService {
 
     @Transactional(readOnly = true)
     public RecipeDtos.RecipeResponse featured(UUID userId, LocalDate today) {
-        List<Recipe> recipes = recipeRepository.findAllByOrderByNameAsc();
+        List<Recipe> recipes = recipeCatalogCache.snapshot();
         if (recipes.isEmpty()) {
             return null;
         }
@@ -133,13 +136,12 @@ public class RecipeService {
                 .toList();
         int poolSize = Math.min(FEATURED_POOL_SIZE, ranked.size());
         Recipe chosen = ranked.get((int) (today.toEpochDay() % poolSize));
-        decorate(List.of(chosen), userId);
-        return DtoMapper.toRecipeResponse(chosen);
+        return mapRecipe(chosen, favoriteView(List.of(chosen), userId));
     }
 
     @Transactional(readOnly = true)
     public RecipeDtos.DailyPicksResponse dailyPicks(UUID userId, LocalDate today, int limit) {
-        List<Recipe> recipes = recipeRepository.findAllByOrderByNameAsc();
+        List<Recipe> recipes = recipeCatalogCache.snapshot();
         if (recipes.isEmpty()) {
             return new RecipeDtos.DailyPicksResponse(List.of(), today, "No recipes are available yet.");
         }
@@ -185,9 +187,11 @@ public class RecipeService {
             if (favoriteCounts.getOrDefault(recipe.getId(), 0) > 0) {
                 reasons.add("popular");
             }
-            decorate(List.of(recipe), userId);
             items.add(new RecipeDtos.DailyPickResponse(
-                    DtoMapper.toRecipeResponse(recipe),
+                    DtoMapper.toRecipeResponse(
+                            recipe,
+                            favoriteCounts.getOrDefault(recipe.getId(), 0),
+                            favoriteIds.contains(recipe.getId())),
                     match.matchPercent(),
                     match.canPrepare(),
                     score,
@@ -224,20 +228,14 @@ public class RecipeService {
     @Transactional(readOnly = true)
     public RecipeDtos.FavoriteListResponse listFavorites(UUID userId) {
         Set<UUID> ids = favoriteRepository.findRecipeIdsByUserId(userId);
-        List<Recipe> recipes = recipeRepository.findAllById(ids).stream()
-                .sorted(Comparator.comparing(r -> r.getName().toLowerCase()))
-                .toList();
-        recipeRepository.findAllByOrderByNameAsc().stream()
-                .filter(recipe -> ids.contains(recipe.getId()))
-                .forEach(recipe -> recipe.getIngredients().size());
         List<Recipe> withIngredients = ids.stream()
                 .map(id -> recipeRepository.findWithIngredientsById(id).orElse(null))
                 .filter(recipe -> recipe != null)
                 .sorted(Comparator.comparing(r -> r.getName().toLowerCase()))
                 .toList();
-        decorate(withIngredients, userId);
+        FavoriteView fav = favoriteView(withIngredients, userId);
         return new RecipeDtos.FavoriteListResponse(
-                withIngredients.stream().map(DtoMapper::toRecipeResponse).toList(),
+                withIngredients.stream().map(recipe -> mapRecipe(recipe, fav)).toList(),
                 withIngredients.size()
         );
     }
@@ -255,7 +253,7 @@ public class RecipeService {
         List<Ingredient> usable = pantry.stream()
                 .filter(item -> item.getExpirationDate() == null || !item.getExpirationDate().isBefore(LocalDate.now()))
                 .toList();
-        List<Recipe> recipes = recipeRepository.findAllByOrderByNameAsc();
+        List<Recipe> recipes = recipeCatalogCache.snapshot();
         List<String> pantryNames = usable.stream().map(Ingredient::getName).toList();
 
         List<RecipeDtos.AiRecipeProposal> aiProposals = request.includeAiOrDefault()
@@ -370,6 +368,8 @@ public class RecipeService {
             }
         }
         recipe = recipeRepository.save(recipe);
+        // New recipe changes the catalog set -> drop the cached snapshot once this tx commits.
+        recipeCatalogCache.evictAfterCommit();
         aiServiceClient.reindexRecipe(recipe.getId());
         return new RecipeDtos.RecipeIngestResponse(recipe.getId(), recipe.getName(), true);
     }
@@ -386,11 +386,14 @@ public class RecipeService {
                 .sorted(Comparator.comparingDouble((Recipe r) -> -popularity(r, favoriteCounts))
                         .thenComparing(r -> r.getName().toLowerCase()))
                 .toList();
+        Set<UUID> favoriteIds = userId != null ? favoriteRepository.findRecipeIdsByUserId(userId) : Set.of();
         List<RecipeDtos.DailyPickResponse> items = new ArrayList<>();
         for (Recipe recipe : ranked.stream().limit(limit).toList()) {
-            decorate(List.of(recipe), userId);
             items.add(new RecipeDtos.DailyPickResponse(
-                    DtoMapper.toRecipeResponse(recipe),
+                    DtoMapper.toRecipeResponse(
+                            recipe,
+                            favoriteCounts.getOrDefault(recipe.getId(), 0),
+                            favoriteIds.contains(recipe.getId())),
                     0.0,
                     false,
                     Math.round(popularity(recipe, favoriteCounts) * 10.0) / 10.0,
@@ -456,17 +459,29 @@ public class RecipeService {
         }
     }
 
-    private void decorate(List<Recipe> recipes, UUID userId) {
+    /**
+     * Builds the per-user favorite view (counts + which recipes the user favorited) WITHOUT mutating
+     * the recipe entities — the catalog snapshot is shared across users and must stay immutable.
+     * Apply it at DTO-mapping time via {@link #mapRecipe(Recipe, FavoriteView)}.
+     */
+    private FavoriteView favoriteView(List<Recipe> recipes, UUID userId) {
         if (recipes.isEmpty()) {
-            return;
+            return new FavoriteView(Map.of(), Set.of());
         }
         List<UUID> ids = recipes.stream().map(Recipe::getId).toList();
         Map<UUID, Integer> counts = favoriteCounts(ids);
         Set<UUID> favoriteIds = userId != null ? favoriteRepository.findRecipeIdsByUserId(userId) : Set.of();
-        for (Recipe recipe : recipes) {
-            recipe.setFavoriteCount(counts.getOrDefault(recipe.getId(), 0));
-            recipe.setFavorite(userId != null && favoriteIds.contains(recipe.getId()));
-        }
+        return new FavoriteView(counts, favoriteIds);
+    }
+
+    private RecipeDtos.RecipeResponse mapRecipe(Recipe recipe, FavoriteView fav) {
+        return DtoMapper.toRecipeResponse(
+                recipe,
+                fav.counts().getOrDefault(recipe.getId(), 0),
+                fav.favoriteIds().contains(recipe.getId()));
+    }
+
+    private record FavoriteView(Map<UUID, Integer> counts, Set<UUID> favoriteIds) {
     }
 
     private double popularity(Recipe recipe, Map<UUID, Integer> favoriteCounts) {
