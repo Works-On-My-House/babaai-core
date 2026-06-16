@@ -2,11 +2,13 @@ package com.babaai.core.security;
 
 import com.babaai.core.domain.User;
 import com.babaai.core.repository.UserRepository;
+import com.babaai.core.service.PresenceService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -24,15 +26,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserRepository userRepository;
     private final PermissionResolver permissionResolver;
+    private final PresenceService presenceService;
 
     public JwtAuthenticationFilter(
             JwtService jwtService,
             UserRepository userRepository,
-            PermissionResolver permissionResolver
+            PermissionResolver permissionResolver,
+            PresenceService presenceService
     ) {
         this.jwtService = jwtService;
         this.userRepository = userRepository;
         this.permissionResolver = permissionResolver;
+        this.presenceService = presenceService;
     }
 
     @Override
@@ -56,6 +61,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                             new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
+
+                    // Presence — at most one write per throttle window.
+                    Instant now = Instant.now();
+                    if (presenceService.isStale(value.getLastSeenAt(), now)) {
+                        presenceService.touch(value.getId(), now);
+                    }
                 });
             }
         }
