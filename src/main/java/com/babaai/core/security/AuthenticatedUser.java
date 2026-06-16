@@ -1,18 +1,19 @@
 package com.babaai.core.security;
 
 import com.babaai.core.domain.User;
+import java.time.Instant;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public class AuthenticatedUser implements org.springframework.security.core.userdetails.UserDetails {
 
     private final User user;
+    private final Collection<? extends GrantedAuthority> authorities;
 
-    public AuthenticatedUser(User user) {
+    public AuthenticatedUser(User user, Collection<? extends GrantedAuthority> authorities) {
         this.user = user;
+        this.authorities = authorities;
     }
 
     public User getUser() {
@@ -25,7 +26,7 @@ public class AuthenticatedUser implements org.springframework.security.core.user
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return authorities;
     }
 
     @Override
@@ -45,7 +46,11 @@ public class AuthenticatedUser implements org.springframework.security.core.user
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        if (!user.isAccountNonLocked()) {
+            return false;
+        }
+        Instant lockedUntil = user.getLockedUntil();
+        return lockedUntil == null || lockedUntil.isBefore(Instant.now());
     }
 
     @Override
@@ -55,6 +60,6 @@ public class AuthenticatedUser implements org.springframework.security.core.user
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.isEnabled();
     }
 }

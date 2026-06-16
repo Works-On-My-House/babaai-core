@@ -32,6 +32,8 @@ public class AuthService {
         user.setEmail(request.email());
         user.setUsername(request.username());
         user.setHashedPassword(passwordEncoder.encode(request.password()));
+        // No default role assigned yet — once roles are defined in AppRole, look it up and
+        // do user.getRoles().add(defaultRole) here.
         return DtoMapper.toUserResponse(userRepository.save(user));
     }
 

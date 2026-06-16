@@ -7,10 +7,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -21,10 +23,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserRepository userRepository;
+    private final PermissionResolver permissionResolver;
 
-    public JwtAuthenticationFilter(JwtService jwtService, UserRepository userRepository) {
+    public JwtAuthenticationFilter(
+            JwtService jwtService,
+            UserRepository userRepository,
+            PermissionResolver permissionResolver
+    ) {
         this.jwtService = jwtService;
         this.userRepository = userRepository;
+        this.permissionResolver = permissionResolver;
     }
 
     @Override
@@ -38,9 +46,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String token = header.substring(7);
             Optional<UUID> userId = jwtService.parseUserId(token);
             if (userId.isPresent() && SecurityContextHolder.getContext().getAuthentication() == null) {
-                Optional<User> user = userRepository.findById(userId.get());
+                Optional<User> user = userRepository.findWithRolesAndPermissionsById(userId.get());
                 user.ifPresent(value -> {
-                    AuthenticatedUser principal = new AuthenticatedUser(value);
+                    List<SimpleGrantedAuthority> authorities = permissionResolver.effectivePermissions(value).stream()
+                            .map(SimpleGrantedAuthority::new)
+                            .toList();
+                    AuthenticatedUser principal = new AuthenticatedUser(value, authorities);
                     UsernamePasswordAuthenticationToken authentication =
                             new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
