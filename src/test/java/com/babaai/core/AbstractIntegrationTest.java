@@ -48,6 +48,7 @@ public abstract class AbstractIntegrationTest {
         registry.add("CORS_ORIGINS", () -> "http://localhost:5173");
         registry.add("AI_SERVICE_URL", () -> "http://localhost:9999");
         registry.add("AI_SERVICE_TOKEN", () -> "test-ai-token");
+        registry.add("GATEWAY_INTERNAL_URL", () -> "http://localhost:9998");
         registry.add("DEFAULT_MIN_MATCH_PERCENT", () -> "50");
         registry.add("DEFAULT_SUGGESTION_LIMIT", () -> "20");
         registry.add("DEFAULT_PAGE_SIZE", () -> "20");

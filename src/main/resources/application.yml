@@ -36,6 +36,10 @@ babaai:
   ai:
     base-url: ${AI_SERVICE_URL}
     service-token: ${AI_SERVICE_TOKEN}
+  gateway:
+    # Internal URL the gateway is reachable at (for pushing token-revocation events).
+    # Auth is a signed service token (core's JWKS), so no shared secret is configured here.
+    base-url: ${GATEWAY_INTERNAL_URL}
   defaults:
     min-match-percent: ${DEFAULT_MIN_MATCH_PERCENT}
     suggestion-limit: ${DEFAULT_SUGGESTION_LIMIT}
@@ -66,6 +70,12 @@ babaai:
       appConfig:
         maximum-size: 50
         ttl: 30m
+
+logging:
+  level:
+    # Application logs (e.g. AiServiceClient) at INFO so they're visible in `docker logs`.
+    # Override with LOG_LEVEL=DEBUG for more detail.
+    com.babaai.core: ${LOG_LEVEL:INFO}
 
 management:
   endpoints:

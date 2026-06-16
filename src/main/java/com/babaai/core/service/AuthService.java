@@ -63,6 +63,11 @@ public class AuthService {
                 .orElseThrow(() -> new AppException("Incorrect username or password", HttpStatus.UNAUTHORIZED));
 
         Instant now = Instant.now();
+        // A disabled account must not authenticate even with the correct password. (Lockout is
+        // covered by the lockedUntil check below — the FE already surfaces that.)
+        if (!user.isEnabled()) {
+            throw new AppException("Account is disabled", HttpStatus.FORBIDDEN);
+        }
         if (user.getLockedUntil() != null && user.getLockedUntil().isAfter(now)) {
             throw new AppException(
                     "Account is temporarily locked due to too many failed attempts. Try again later.",
@@ -90,6 +95,10 @@ public class AuthService {
         RefreshTokenService.Rotation rotation = refreshTokenService.rotate(rawRefreshToken);
         User user = userRepository.findWithRolesAndPermissionsById(rotation.userId())
                 .orElseThrow(() -> new AppException("User not found", HttpStatus.UNAUTHORIZED));
+        // Don't hand a disabled account a fresh access token.
+        if (!user.isEnabled()) {
+            throw new AppException("Account is disabled", HttpStatus.FORBIDDEN);
+        }
         String accessToken = jwtService.createAccessToken(
                 user.getId(), permissionResolver.effectivePermissions(user), user.getPermissionsVersion());
         return new IssuedTokens(accessToken, rotation.refreshToken());

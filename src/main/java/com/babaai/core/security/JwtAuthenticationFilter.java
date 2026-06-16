@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -51,12 +52,23 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String token = header.substring(7);
             Optional<UUID> userId = jwtService.parseUserId(token);
             if (userId.isPresent() && SecurityContextHolder.getContext().getAuthentication() == null) {
-                Optional<User> user = userRepository.findWithRolesAndPermissionsById(userId.get());
-                user.ifPresent(value -> {
-                    List<SimpleGrantedAuthority> authorities = permissionResolver.effectivePermissions(value).stream()
+                Optional<User> userOpt = userRepository.findWithRolesAndPermissionsById(userId.get());
+                if (userOpt.isPresent()) {
+                    User user = userOpt.get();
+                    // Account kill-switch: a disabled account is rejected immediately with an explicit
+                    // reason the FE can show. The filter reloads the user every request, so disabling
+                    // takes effect at once on core endpoints (no token-expiry wait). 403 (not 401) so
+                    // the client surfaces the reason instead of trying to refresh.
+                    if (!user.isEnabled()) {
+                        response.setStatus(HttpStatus.FORBIDDEN.value());
+                        response.setContentType("application/json");
+                        response.getWriter().write("{\"detail\":\"Account is disabled\"}");
+                        return;
+                    }
+                    List<SimpleGrantedAuthority> authorities = permissionResolver.effectivePermissions(user).stream()
                             .map(SimpleGrantedAuthority::new)
                             .toList();
-                    AuthenticatedUser principal = new AuthenticatedUser(value, authorities);
+                    AuthenticatedUser principal = new AuthenticatedUser(user, authorities);
                     UsernamePasswordAuthenticationToken authentication =
                             new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
@@ -64,10 +76,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                     // Presence — at most one write per throttle window.
                     Instant now = Instant.now();
-                    if (presenceService.isStale(value.getLastSeenAt(), now)) {
-                        presenceService.touch(value.getId(), now);
+                    if (presenceService.isStale(user.getLastSeenAt(), now)) {
+                        presenceService.touch(user.getId(), now);
                     }
-                });
+                }
             }
         }
         filterChain.doFilter(request, response);

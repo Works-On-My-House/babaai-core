@@ -11,6 +11,7 @@ public class AppProperties {
     private final Jwt jwt = new Jwt();
     private final Cors cors = new Cors();
     private final Ai ai = new Ai();
+    private final Gateway gateway = new Gateway();
     private final Defaults defaults = new Defaults();
     private final Config config = new Config();
     private final Cache cache = new Cache();
@@ -25,6 +26,10 @@ public class AppProperties {
 
     public Ai getAi() {
         return ai;
+    }
+
+    public Gateway getGateway() {
+        return gateway;
     }
 
     public Defaults getDefaults() {
@@ -135,6 +140,18 @@ public class AppProperties {
 
         public void setServiceToken(String serviceToken) {
             this.serviceToken = serviceToken;
+        }
+    }
+
+    public static class Gateway {
+        private String baseUrl;
+
+        public String getBaseUrl() {
+            return baseUrl;
+        }
+
+        public void setBaseUrl(String baseUrl) {
+            this.baseUrl = baseUrl;
         }
     }
 

@@ -108,7 +108,9 @@ public final class RecipeDtos {
             @JsonProperty("page_size") int pageSize,
             int pages,
             String message,
-            @JsonProperty("ai_proposals") List<AiRecipeProposal> aiProposals
+            @JsonProperty("ai_proposals") List<AiRecipeProposal> aiProposals,
+            // User-facing note when AI proposals are unavailable (e.g. the model failed); null otherwise.
+            @JsonProperty("ai_message") String aiMessage
     ) {
     }
 
@@ -201,6 +203,6 @@ public final class RecipeDtos {
     ) {
     }
 
-    public record ReindexRequest(UUID recipeId) {
+    public record ReindexRequest(@JsonProperty("recipe_id") UUID recipeId) {
     }
 }

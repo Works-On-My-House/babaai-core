@@ -256,9 +256,11 @@ public class RecipeService {
         List<Recipe> recipes = recipeCatalogCache.snapshot();
         List<String> pantryNames = usable.stream().map(Ingredient::getName).toList();
 
-        List<RecipeDtos.AiRecipeProposal> aiProposals = request.includeAiOrDefault()
+        AiServiceClient.AiProposals aiResult = request.includeAiOrDefault()
                 ? aiServiceClient.fetchProposals(pantryNames, 3)
-                : List.of();
+                : AiServiceClient.AiProposals.empty();
+        List<RecipeDtos.AiRecipeProposal> aiProposals = aiResult.proposals();
+        String aiMessage = aiResult.message();
         if (!aiProposals.isEmpty()) {
             saveAiHistory(userId, aiProposals);
         }
@@ -267,21 +269,21 @@ public class RecipeService {
             return new RecipeDtos.SuggestionResponse(
                     List.of(), 0, 1, limit, 0,
                     "Add ingredients to your pantry before generating suggestions.",
-                    aiProposals
+                    aiProposals, aiMessage
             );
         }
         if (usable.isEmpty()) {
             return new RecipeDtos.SuggestionResponse(
                     List.of(), 0, 1, limit, 0,
                     "All selected pantry ingredients are expired. Update expiration dates or add fresh items to generate suggestions.",
-                    aiProposals
+                    aiProposals, aiMessage
             );
         }
         if (recipes.isEmpty()) {
             return new RecipeDtos.SuggestionResponse(
                     List.of(), 0, 1, limit, 0,
                     "No recipes are available in the catalog yet.",
-                    aiProposals
+                    aiProposals, aiMessage
             );
         }
 
@@ -295,7 +297,7 @@ public class RecipeService {
                     ? "No recipes match your pantry at the requested threshold. Try lowering the minimum match percentage or add more ingredients."
                     : "No catalog recipes matched, but the AI Chef proposed creative ideas below.";
             return new RecipeDtos.SuggestionResponse(
-                    List.of(), 0, 1, limit, 0, message, aiProposals
+                    List.of(), 0, 1, limit, 0, message, aiProposals, aiMessage
             );
         }
 
@@ -310,7 +312,8 @@ public class RecipeService {
                 limit,
                 1,
                 null,
-                aiProposals
+                aiProposals,
+                aiMessage
         );
     }
 
