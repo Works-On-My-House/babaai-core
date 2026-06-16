@@ -42,6 +42,25 @@ babaai:
     sample-recipes-path: ${SEED_RECIPES_CONFIG_PATH:classpath:config/sample_recipes.json}
     app-defaults-path: ${APP_DEFAULTS_CONFIG_PATH:classpath:config/app_defaults.json}
     recipe-categories-path: ${RECIPE_CATEGORIES_CONFIG_PATH:classpath:config/recipe_categories.json}
+  cache:
+    enabled: ${CACHE_ENABLED:true}
+    default-spec:
+      maximum-size: 1000
+      ttl: 10m
+    specs:
+      # Global catalog (PERF-1.3) — cached as a SINGLE full-catalog snapshot (one entry).
+      # maximum-size is just headroom for snapshot variants; heap scales with catalog size,
+      # not this number. Recipes change rarely; 10m TTL bounds view-count/ranking staleness.
+      recipeCatalog:
+        maximum-size: 8
+        ttl: 10m
+      recipeCategories:
+        maximum-size: 200
+        ttl: 1h
+      # Semi-static config (PERF-1.4) — JsonConfigService + public config
+      appConfig:
+        maximum-size: 50
+        ttl: 30m
 
 management:
   endpoints:

@@ -60,6 +60,10 @@ public final class DtoMapper {
     }
 
     public static RecipeDtos.RecipeResponse toRecipeResponse(Recipe recipe) {
+        return toRecipeResponse(recipe, 0, false);
+    }
+
+    public static RecipeDtos.RecipeResponse toRecipeResponse(Recipe recipe, int favoriteCount, boolean favorite) {
         List<RecipeDtos.RecipeIngredientResponse> ingredients = recipe.getIngredients().stream()
                 .map(DtoMapper::toRecipeIngredientResponse)
                 .toList();
@@ -73,8 +77,8 @@ public final class DtoMapper {
                 recipe.getPreparation(),
                 ingredients,
                 recipe.getViewCount(),
-                recipe.getFavoriteCount(),
-                recipe.isFavorite()
+                favoriteCount,
+                favorite
         );
     }
 
