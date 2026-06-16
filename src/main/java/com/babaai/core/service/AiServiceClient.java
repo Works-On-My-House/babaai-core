@@ -1,10 +1,12 @@
 package com.babaai.core.service;
 
 import com.babaai.core.dto.RecipeDtos;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -15,19 +17,33 @@ public class AiServiceClient {
 
     private final WebClient aiWebClient;
 
-    public AiServiceClient(WebClient aiWebClient) {
+    public AiServiceClient(@Qualifier("aiWebClient") WebClient aiWebClient) {
         this.aiWebClient = aiWebClient;
     }
 
-    public record ProposalRequest(List<String> pantryNames, int limit) {
+    // @JsonProperty pins the wire name: these WebClients serialize with a default camelCase mapper,
+    // and ai expects snake_case (pantry_names) — without this the list is dropped and ai gets [].
+    public record ProposalRequest(@JsonProperty("pantry_names") List<String> pantryNames, int limit) {
     }
 
-    public record ProposalResponse(List<RecipeDtos.AiRecipeProposal> proposals) {
+    public record ProposalResponse(List<RecipeDtos.AiRecipeProposal> proposals, String error) {
     }
 
-    public List<RecipeDtos.AiRecipeProposal> fetchProposals(List<String> pantryNames, int limit) {
+    /** Proposals plus an optional user-facing message explaining why there are none. */
+    public record AiProposals(List<RecipeDtos.AiRecipeProposal> proposals, String message) {
+        public static AiProposals empty() {
+            return new AiProposals(List.of(), null);
+        }
+    }
+
+    /**
+     * Best-effort AI proposals. Never throws — a failure returns an empty list plus a message so the
+     * caller can surface it to the user, without blocking the (core-computed) catalog suggestions.
+     */
+    public AiProposals fetchProposals(List<String> pantryNames, int limit) {
+        log.info("Requesting AI proposals: pantryItems={}, limit={}", pantryNames.size(), limit);
         if (pantryNames.isEmpty()) {
-            return List.of();
+            return AiProposals.empty();
         }
         try {
             ProposalResponse response = aiWebClient.post()
@@ -36,10 +52,17 @@ public class AiServiceClient {
                     .retrieve()
                     .bodyToMono(ProposalResponse.class)
                     .block();
-            return response != null && response.proposals() != null ? response.proposals() : List.of();
+            if (response == null) {
+                log.warn("AI proposal request returned no body");
+                return new AiProposals(List.of(), "AI suggestions are temporarily unavailable.");
+            }
+            List<RecipeDtos.AiRecipeProposal> proposals =
+                    response.proposals() != null ? response.proposals() : List.of();
+            log.info("AI proposals received: count={}, error={}", proposals.size(), response.error());
+            return new AiProposals(proposals, response.error());
         } catch (Exception ex) {
-            log.warn("AI proposal request failed: {}", ex.getMessage());
-            return List.of();
+            log.warn("AI proposal request failed: {} - {}", ex.getClass().getSimpleName(), ex.getMessage());
+            return new AiProposals(List.of(), "AI suggestions are temporarily unavailable.");
         }
     }
 

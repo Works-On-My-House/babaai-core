@@ -33,7 +33,7 @@ public key published at `/.well-known/jwks.json`. Never copy the private key any
 ### Access token ✅
 - **RS256 JWT**, short-lived (**`JWT_EXPIRE_MINUTES`, default 15**), stateless.
 - Claims: `sub` (user id), `permissions` (effective permission keys — see §4), `pv`
-  (permissions_version, for future freshness checks).
+  (permissions_version — drives instant revocation, see §8).
 - Sent as `Authorization: Bearer <token>`. Verified by signature; no DB lookup needed by consumers
   that only need the claims.
 
@@ -141,24 +141,68 @@ Passwords are hashed with **BCrypt**.
 ---
 
 ## 7. Service-to-service (core ↔ ai) ✅
-Internal calls (recipe proposals, reindex) use a shared secret header **`X-Service-Token`** matching
-`AI_SERVICE_TOKEN` (same value in core and ai). In core it maps to the `ROLE_SERVICE` authority and
-guards `/api/v1/internal/**`. Keep the token strong and rotated; ai must not be publicly reachable
-except via the gateway.
+Both directions use the shared-secret header **`X-Service-Token`** (derived from `AI_SERVICE_TOKEN`):
+core→ai (recipe proposals, reindex) and ai→core (recipe ingest, `/api/v1/internal/**`, where it maps
+to the `ROLE_SERVICE` authority via `ServiceTokenFilter`). A static secret keeps these internal hops
+free of any JWKS/clock dependency.
+
+The **verifier stores only a SHA-256 hash** of the secret, not the plaintext, and checks the incoming
+header by hashing it + constant-time compare (same approach as the refresh-token store §2) — so a
+leak of ai's config doesn't expose a usable token. ai holds `AI_SERVICE_TOKEN_HASH`; the sender still
+holds the raw secret (it must, to send it), and TLS protects it in transit. Keep the secret strong and
+rotated; ai must not be publicly reachable except via the gateway.
+
+> The inbound ai→core verifier (`ServiceTokenFilter`) still compares the raw value — it can be moved
+> to the same hash-at-rest scheme for symmetry.
+
+> Note: the **gateway** revocation push (§8) uses a *signed* service token instead, because the
+> gateway already loads core's JWKS for edge token checks (so verification is free there) — whereas
+> on the core↔ai hops a shared secret is simpler and adds no runtime dependency.
 
 ---
 
-## 8. ai service authorization ⛔ (planned — ticket 869dqh96c)
+## 8. Instant permission revocation (gateway) ✅ (ticket 869dqmbfp)
+An issued access token carries the `permissions` baked in at issuance, so a revoke/role change
+would normally only take effect on the next token (≤ `JWT_EXPIRE_MINUTES`). To make it **near-instant
+without Redis or a broker**:
+
+- **`pv` (permissions_version)** on `users` is minted into every access token. Bumping it
+  invalidates all of a user's outstanding tokens; the *refreshed* token carries the new `pv`, so it
+  is the discriminator the gateway uses (reject `pv < N`, admit `pv = N`).
+- **Trigger (core):** `PermissionVersionService.bumpAndNotify(userId)` increments `pv` in-tx and,
+  **after commit** (mirrors `RecipeCatalogCache.evictAfterCommit`), fire-and-forget POSTs
+  `{user_id, pv}` to the gateway. Exposed at `POST /api/v1/internal/auth/users/{id}/revoke` — the
+  seam the future admin UI (869dqjtpc) calls.
+- **Service auth (core→gateway):** no shared secret on the wire. Core signs a **short-lived (60s)
+  RS256 service token** (`JwtService.createServiceToken`, `svc` claim) with its private key and sends
+  it in `X-Service-Auth`; the gateway verifies it via core's **JWKS** (signature + expiry + `svc`).
+  A captured token is signature-bound and expires in 60s. (The static `X-Service-Token` shared-secret
+  path in §7 is unchanged for core↔ai.)
+- **Enforce (gateway):** a Caffeine denylist `userId → minAcceptablePv` with
+  `expireAfterWrite = ACCESS_TOKEN_TTL`. A reactive `GlobalFilter` verifies the JWT signature (core
+  JWKS) and rejects stale tokens with **`401` + header `X-Auth-Error: token_stale`**. Entries
+  self-expire once no token with the old `pv` can exist; absent/undecodable tokens pass through
+  (downstream still authorizes).
+- **Client (FE):** the axios 401 interceptor silently `/auth/refresh`es and retries (§2 flow) — the
+  retry carries the new claims, or `403`s if the permission is genuinely gone.
+- **Resilience:** if the push fails or the gateway restarts, the system falls back to the
+  `ACCESS_TOKEN_TTL` bound — never worse than TTL-only. **Caveat:** the in-memory denylist is
+  per-instance; with multiple gateway replicas, core must fan out (or revisit a shared channel).
+
+---
+
+## 9. ai service authorization ⛔ (planned — ticket 869dqh96c)
 For direct, streaming user calls (`browser → gateway → ai`, no core hop), **ai validates the JWT
 statelessly** (signature via JWKS + read the `permissions` claim) — core already baked the
 entitlement into the token, so ai does a crypto verify + a claim read, no DB, no core call.
 - Any authenticated user may call AI; the **claim selects the tier** (premium model vs free Ollama).
-- **Quota** (e.g. tokens/day) enforced at ai via a Redis counter.
-- ai keeps the service-token path for core-internal calls.
+- **Quota** (e.g. tokens/day) enforced at ai via an in-process daily counter (stub; a shared store
+  can replace it if/when premium quotas need to span instances).
+- ai keeps the static `X-Service-Token` path for its core-internal calls (§7).
 
 ---
 
-## 9. Configuration (env)
+## 10. Configuration (env)
 | Var | Meaning |
 |---|---|
 | `JWT_KEY_PATH` | RSA keypair dir (private key — core only) |
@@ -167,6 +211,7 @@ entitlement into the token, so ai does a crypto verify + a claim read, no DB, no
 | `REFRESH_COOKIE_SECURE` | `false` for local http dev (a Secure cookie isn't sent over http) |
 | `REFRESH_COOKIE_SAME_SITE` / `_NAME` / `_PATH` | refresh cookie attributes |
 | `AI_SERVICE_TOKEN` | shared core↔ai secret (must match in both) |
+| `GATEWAY_INTERNAL_URL` | gateway base URL core pushes revocation events to (§8; auth is a signed service token, no shared secret) |
 | `CORS_ORIGINS` | allowed browser origins (credentials are allowed) |
 
 The frontend must send `withCredentials` so the httpOnly refresh cookie flows cross-origin.

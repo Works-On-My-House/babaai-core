@@ -22,9 +22,10 @@ import org.springframework.context.annotation.Configuration;
  * point swap this single Caffeine manager for a two-tier manager (Caffeine L1 near-cache in front
  * of a shared Redis L2) — e.g. a {@code CompositeCacheManager(caffeine, redis)} or a dedicated
  * near-cache impl, plus {@code spring-boot-starter-data-redis}. Until core is horizontally scaled,
- * L1-only is the correct, cheaper choice. NOTE: the auth-overhaul live-permission propagation
- * (task 869dq4a12) needs Redis independently — the gateway can't read core's in-process Caffeine —
- * so Redis will likely arrive via that work first; reuse the same Redis here when it does.
+ * L1-only is the correct, cheaper choice. NOTE: instant permission revocation (task 869dqmbfp) does
+ * NOT use Redis — the gateway can't read core's in-process Caffeine, so core pushes pv bumps to the
+ * gateway via a webhook and the gateway keeps its own Caffeine denylist. So a shared Redis is only
+ * warranted here once core is horizontally scaled and needs an L2.
  */
 @Configuration
 @EnableCaching
