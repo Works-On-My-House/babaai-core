@@ -6,6 +6,8 @@ import com.babaai.core.domain.RecipeIngredient;
 import com.babaai.core.repository.IngredientCategoryRepository;
 import com.babaai.core.repository.RecipeRepository;
 import com.babaai.core.service.JsonConfigService;
+import com.babaai.core.service.NutritionCalculator;
+import com.babaai.core.service.RecipeService;
 import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -23,15 +25,18 @@ public class DataSeedRunner implements ApplicationRunner {
     private final IngredientCategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
     private final JsonConfigService jsonConfigService;
+    private final NutritionCalculator nutritionCalculator;
 
     public DataSeedRunner(
             IngredientCategoryRepository categoryRepository,
             RecipeRepository recipeRepository,
-            JsonConfigService jsonConfigService
+            JsonConfigService jsonConfigService,
+            NutritionCalculator nutritionCalculator
     ) {
         this.categoryRepository = categoryRepository;
         this.recipeRepository = recipeRepository;
         this.jsonConfigService = jsonConfigService;
+        this.nutritionCalculator = nutritionCalculator;
     }
 
     @Override
@@ -92,6 +97,12 @@ public class DataSeedRunner implements ApplicationRunner {
             recipe.setCategory(String.valueOf(raw.getOrDefault("category", "Other")));
             recipe.setPreparation(String.valueOf(raw.get("preparation")));
             recipe.setSourceType("seed");
+            // Seeded recipes are trusted -> verified, so they actually surface in the catalog (869dqrre0).
+            recipe.setVerified(RecipeService.verifiedFor(recipe.getSourceType()));
+            Object servings = raw.get("servings");
+            if (servings != null) {
+                recipe.setServings((int) Math.round(Double.parseDouble(String.valueOf(servings))));
+            }
             Object ingredients = raw.get("ingredients");
             if (ingredients instanceof List<?> list) {
                 for (Object item : list) {
@@ -108,6 +119,12 @@ public class DataSeedRunner implements ApplicationRunner {
                     recipe.getIngredients().add(line);
                 }
             }
+            NutritionCalculator.Nutrition nutrition = nutritionCalculator.computeFromIngredients(recipe.getIngredients());
+            recipe.setCalories(nutrition.calories());
+            recipe.setProteinG(nutrition.proteinG());
+            recipe.setCarbsG(nutrition.carbsG());
+            recipe.setFatG(nutrition.fatG());
+            recipe.setNutritionComplete(nutrition.complete());
             recipeRepository.save(recipe);
             added++;
         }

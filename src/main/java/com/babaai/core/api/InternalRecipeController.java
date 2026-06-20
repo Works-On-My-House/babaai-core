@@ -22,4 +22,14 @@ public class InternalRecipeController {
     public RecipeDtos.RecipeIngestResponse ingest(@Valid @RequestBody RecipeDtos.RecipeIngestRequest request) {
         return recipeService.ingest(request);
     }
+
+    /**
+     * Bulk file-import of curated recipes (869dqrre0). Imported recipes are created verified with
+     * nutrition computed. Behind the internal service-token (mirrors /ingest); an admin-permission
+     * variant can front this once admin auth lands (869dqjtpc).
+     */
+    @PostMapping("/import")
+    public RecipeDtos.RecipeImportResponse importRecipes(@Valid @RequestBody RecipeDtos.RecipeImportRequest request) {
+        return recipeService.importRecipes(request);
+    }
 }

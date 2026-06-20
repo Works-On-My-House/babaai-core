@@ -33,7 +33,19 @@ public final class RecipeDtos {
             List<RecipeIngredientResponse> ingredients,
             @JsonProperty("view_count") int viewCount,
             @JsonProperty("favorite_count") int favoriteCount,
-            @JsonProperty("is_favorite") boolean favorite
+            @JsonProperty("is_favorite") boolean favorite,
+            NutritionResponse nutrition
+    ) {
+    }
+
+    /** Per-serving nutrition (recipe totals / servings). Macro fields are null until computed. */
+    public record NutritionResponse(
+            Double calories,
+            @JsonProperty("protein_g") Double proteinG,
+            @JsonProperty("carbs_g") Double carbsG,
+            @JsonProperty("fat_g") Double fatG,
+            boolean complete,
+            Integer servings
     ) {
     }
 
@@ -200,6 +212,40 @@ public final class RecipeDtos {
             @JsonProperty("recipe_id") UUID recipeId,
             String name,
             boolean created
+    ) {
+    }
+
+    /** Optional inline nutrition (recipe TOTAL) supplied by an import to bypass the curated reference. */
+    public record NutritionInput(
+            Double calories,
+            @JsonProperty("protein_g") Double proteinG,
+            @JsonProperty("carbs_g") Double carbsG,
+            @JsonProperty("fat_g") Double fatG
+    ) {
+        public boolean hasAnyValue() {
+            return calories != null || proteinG != null || carbsG != null || fatG != null;
+        }
+    }
+
+    public record RecipeImportItem(
+            String name,
+            String category,
+            String preparation,
+            @JsonProperty("source_url") String sourceUrl,
+            Integer servings,
+            List<RecipeIngredientInput> ingredients,
+            NutritionInput nutrition
+    ) {
+    }
+
+    public record RecipeImportRequest(List<RecipeImportItem> recipes) {
+    }
+
+    public record RecipeImportResponse(
+            int created,
+            int skipped,
+            @JsonProperty("created_names") List<String> createdNames,
+            @JsonProperty("skipped_names") List<String> skippedNames
     ) {
     }
 

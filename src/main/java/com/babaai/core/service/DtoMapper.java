@@ -78,8 +78,29 @@ public final class DtoMapper {
                 ingredients,
                 recipe.getViewCount(),
                 favoriteCount,
-                favorite
+                favorite,
+                toNutritionResponse(recipe)
         );
+    }
+
+    /** Exposes nutrition PER SERVING (recipe totals / servings); servings defaults to 1 when unset. */
+    private static RecipeDtos.NutritionResponse toNutritionResponse(Recipe recipe) {
+        int servings = recipe.getServings() != null && recipe.getServings() > 0 ? recipe.getServings() : 1;
+        return new RecipeDtos.NutritionResponse(
+                perServing(recipe.getCalories(), servings),
+                perServing(recipe.getProteinG(), servings),
+                perServing(recipe.getCarbsG(), servings),
+                perServing(recipe.getFatG(), servings),
+                recipe.isNutritionComplete(),
+                recipe.getServings()
+        );
+    }
+
+    private static Double perServing(Double total, int servings) {
+        if (total == null) {
+            return null;
+        }
+        return Math.round((total / servings) * 10.0) / 10.0;
     }
 
     public static NotificationDtos.NotificationResponse toNotificationResponse(Notification notification) {

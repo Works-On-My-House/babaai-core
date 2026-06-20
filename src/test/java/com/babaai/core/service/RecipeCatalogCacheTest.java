@@ -32,19 +32,20 @@ class RecipeCatalogCacheTest {
     void loadsCatalogOnceThenServesFromCacheUntilEvicted() {
         Recipe recipe = new Recipe();
         recipe.setName("Soup");
-        when(recipeRepository.findAllByOrderByNameAsc()).thenReturn(List.of(recipe));
+        recipe.setVerified(true);
+        when(recipeRepository.findByVerifiedTrueOrderByNameAsc()).thenReturn(List.of(recipe));
 
         List<Recipe> first = catalogCache.snapshot();
         List<Recipe> second = catalogCache.snapshot();
 
         assertThat(second).isSameAs(first);
-        verify(recipeRepository, times(1)).findAllByOrderByNameAsc();
+        verify(recipeRepository, times(1)).findByVerifiedTrueOrderByNameAsc();
 
         // No active transaction in this test -> evictAfterCommit clears immediately.
         catalogCache.evictAfterCommit();
         catalogCache.snapshot();
 
-        verify(recipeRepository, times(2)).findAllByOrderByNameAsc();
+        verify(recipeRepository, times(2)).findByVerifiedTrueOrderByNameAsc();
     }
 
     @Configuration

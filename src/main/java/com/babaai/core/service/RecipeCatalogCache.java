@@ -40,7 +40,9 @@ public class RecipeCatalogCache {
     public List<Recipe> snapshot() {
         // The repo method's @EntityGraph eagerly loads ingredients, so these detached entities are
         // safe to read after the session closes. Wrapped immutable to block structural mutation.
-        return List.copyOf(recipeRepository.findAllByOrderByNameAsc());
+        // Verified-only (869dqrre0): unverified recipes never enter the cache, so featured /
+        // dailyPicks / suggestions / today are automatically gated.
+        return List.copyOf(recipeRepository.findByVerifiedTrueOrderByNameAsc());
     }
 
     /**

@@ -39,35 +39,29 @@ CREATE TABLE IF NOT EXISTS ingredients (
 CREATE INDEX IF NOT EXISTS ix_ingredients_user_id ON ingredients (user_id);
 CREATE INDEX IF NOT EXISTS ix_ingredients_category_id ON ingredients (category_id);
 
-CREATE TABLE IF NOT EXISTS dishes (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    version INTEGER NOT NULL DEFAULT 1,
-    name VARCHAR(255) NOT NULL,
-    slug VARCHAR(255) NOT NULL UNIQUE,
-    category VARCHAR(100) NOT NULL DEFAULT 'Other',
-    description TEXT
-);
-CREATE INDEX IF NOT EXISTS ix_dishes_slug ON dishes (slug);
-
 CREATE TABLE IF NOT EXISTS recipes (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     version INTEGER NOT NULL DEFAULT 1,
-    dish_id UUID REFERENCES dishes (id) ON DELETE SET NULL,
     name VARCHAR(255) NOT NULL,
-    title VARCHAR(255),
     category VARCHAR(100) NOT NULL DEFAULT 'Other',
     preparation TEXT NOT NULL,
     source_type VARCHAR(50) NOT NULL DEFAULT 'seed',
     source_url VARCHAR(2048),
     is_verified BOOLEAN NOT NULL DEFAULT false,
     servings INTEGER,
+    -- Recipe TOTAL nutrition, computed at write time from ingredients x quantity (per-serving
+    -- is derived as total / servings in the DTO layer). nutrition_complete is false when one or
+    -- more ingredient lines could not be matched/converted to grams (partial totals kept).
+    calories DOUBLE PRECISION,
+    protein_g DOUBLE PRECISION,
+    carbs_g DOUBLE PRECISION,
+    fat_g DOUBLE PRECISION,
+    nutrition_complete BOOLEAN NOT NULL DEFAULT false,
     view_count INTEGER NOT NULL DEFAULT 0
 );
-CREATE INDEX IF NOT EXISTS ix_recipes_dish_id ON recipes (dish_id);
+CREATE INDEX IF NOT EXISTS ix_recipes_is_verified ON recipes (is_verified);
 
 CREATE TABLE IF NOT EXISTS recipe_ingredients (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

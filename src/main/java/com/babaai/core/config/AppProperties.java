@@ -200,6 +200,7 @@ public class AppProperties {
         private String sampleRecipesPath = "classpath:config/sample_recipes.json";
         private String appDefaultsPath = "classpath:config/app_defaults.json";
         private String recipeCategoriesPath = "classpath:config/recipe_categories.json";
+        private String ingredientNutritionPath = "classpath:config/ingredient_nutrition.json";
 
         public String getIngredientCategoriesPath() {
             return ingredientCategoriesPath;
@@ -239,6 +240,14 @@ public class AppProperties {
 
         public void setRecipeCategoriesPath(String recipeCategoriesPath) {
             this.recipeCategoriesPath = recipeCategoriesPath;
+        }
+
+        public String getIngredientNutritionPath() {
+            return ingredientNutritionPath;
+        }
+
+        public void setIngredientNutritionPath(String ingredientNutritionPath) {
+            this.ingredientNutritionPath = ingredientNutritionPath;
         }
     }
 

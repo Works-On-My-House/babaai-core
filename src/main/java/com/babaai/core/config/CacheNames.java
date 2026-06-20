@@ -10,7 +10,7 @@ package com.babaai.core.config;
  */
 public final class CacheNames {
 
-    /** Global recipe catalog — hot read path ({@code findAllByOrderByNameAsc}). PERF-1.3. */
+    /** Global recipe catalog — hot read path ({@code findByVerifiedTrueOrderByNameAsc}). PERF-1.3. */
     public static final String RECIPE_CATALOG = "recipeCatalog";
 
     /** Recipe category list — semi-static reference data. PERF-1.3. */

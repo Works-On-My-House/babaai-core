@@ -3,31 +3,17 @@ package com.babaai.core.domain;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "recipes")
 public class Recipe extends BaseEntity {
 
-    @Column(name = "dish_id")
-    private UUID dishId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dish_id", insertable = false, updatable = false)
-    private Dish dish;
-
     @Column(nullable = false)
     private String name;
-
-    @Column
-    private String title;
 
     @Column(nullable = false, length = 100)
     private String category = "Other";
@@ -47,30 +33,28 @@ public class Recipe extends BaseEntity {
     @Column
     private Integer servings;
 
+    // Recipe TOTAL nutrition (sum over ingredient lines). Per-serving is derived as total/servings
+    // at DTO mapping time. Null until computed; partial totals kept with nutritionComplete=false.
+    @Column
+    private Double calories;
+
+    @Column(name = "protein_g")
+    private Double proteinG;
+
+    @Column(name = "carbs_g")
+    private Double carbsG;
+
+    @Column(name = "fat_g")
+    private Double fatG;
+
+    @Column(name = "nutrition_complete", nullable = false)
+    private boolean nutritionComplete;
+
     @Column(name = "view_count", nullable = false)
     private int viewCount;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeIngredient> ingredients = new ArrayList<>();
-
-    public UUID getDishId() {
-        return dishId;
-    }
-
-    public void setDishId(UUID dishId) {
-        this.dishId = dishId;
-    }
-
-    public Dish getDish() {
-        return dish;
-    }
-
-    public void setDish(Dish dish) {
-        this.dish = dish;
-        if (dish != null) {
-            this.dishId = dish.getId();
-        }
-    }
 
     public String getName() {
         return name;
@@ -78,14 +62,6 @@ public class Recipe extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getCategory() {
@@ -134,6 +110,46 @@ public class Recipe extends BaseEntity {
 
     public void setServings(Integer servings) {
         this.servings = servings;
+    }
+
+    public Double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(Double calories) {
+        this.calories = calories;
+    }
+
+    public Double getProteinG() {
+        return proteinG;
+    }
+
+    public void setProteinG(Double proteinG) {
+        this.proteinG = proteinG;
+    }
+
+    public Double getCarbsG() {
+        return carbsG;
+    }
+
+    public void setCarbsG(Double carbsG) {
+        this.carbsG = carbsG;
+    }
+
+    public Double getFatG() {
+        return fatG;
+    }
+
+    public void setFatG(Double fatG) {
+        this.fatG = fatG;
+    }
+
+    public boolean isNutritionComplete() {
+        return nutritionComplete;
+    }
+
+    public void setNutritionComplete(boolean nutritionComplete) {
+        this.nutritionComplete = nutritionComplete;
     }
 
     public int getViewCount() {

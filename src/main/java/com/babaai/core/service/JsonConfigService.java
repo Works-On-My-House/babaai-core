@@ -69,6 +69,33 @@ public class JsonConfigService {
         return toMapList(ingredientCategoriesConfig().get("categories"));
     }
 
+    private Map<String, Object> ingredientNutritionConfig() {
+        return loadObject(appProperties.getConfig().getIngredientNutritionPath());
+    }
+
+    /** Canonical ingredient -> nutrition entry ({@code per_100g}, optional {@code grams_per_piece}/{@code density_g_per_ml}). */
+    @SuppressWarnings("unchecked")
+    public Map<String, Map<String, Object>> nutritionReference() {
+        Map<String, Map<String, Object>> result = new HashMap<>();
+        Object ingredients = ingredientNutritionConfig().get("ingredients");
+        if (ingredients instanceof Map<?, ?> map) {
+            map.forEach((key, value) -> {
+                if (value instanceof Map<?, ?> entry) {
+                    result.put(String.valueOf(key).strip().toLowerCase(), (Map<String, Object>) entry);
+                }
+            });
+        }
+        return result;
+    }
+
+    /** Alias -> canonical ingredient name for the nutrition reference. */
+    public Map<String, String> nutritionAliases() {
+        Map<String, String> result = new HashMap<>();
+        toStringMap(ingredientNutritionConfig().get("aliases"))
+                .forEach((key, value) -> result.put(key.strip().toLowerCase(), value.strip().toLowerCase()));
+        return result;
+    }
+
     public String defaultIngredientCategoryName() {
         Object value = ingredientCategoriesConfig().get("default_category");
         if (value != null) {

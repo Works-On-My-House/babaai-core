@@ -51,6 +51,7 @@ babaai:
     sample-recipes-path: ${SEED_RECIPES_CONFIG_PATH:classpath:config/sample_recipes.json}
     app-defaults-path: ${APP_DEFAULTS_CONFIG_PATH:classpath:config/app_defaults.json}
     recipe-categories-path: ${RECIPE_CATEGORIES_CONFIG_PATH:classpath:config/recipe_categories.json}
+    ingredient-nutrition-path: ${INGREDIENT_NUTRITION_CONFIG_PATH:classpath:config/ingredient_nutrition.json}
   cache:
     enabled: ${CACHE_ENABLED:true}
     default-spec:
