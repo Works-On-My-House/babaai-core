@@ -1,0 +1,20 @@
+{
+  "_comment": "Hard-filter rules for the daily suggestion engine. A recipe is excluded for a user when any of its ingredient product_names CONTAINS (case-insensitive substring) any keyword for a selected allergen or a selected dietary tag. Extensible; keep keywords lowercase.",
+  "allergens": {
+    "dairy": ["milk", "butter", "cheese", "cream", "yogurt", "feta", "parmesan", "mozzarella", "halloumi"],
+    "gluten": ["flour", "bread", "pasta", "tortilla", "noodle", "barley", "rye", "couscous", "cracker"],
+    "nuts": ["almond", "walnut", "cashew", "pecan", "hazelnut", "pistachio", "pine nut"],
+    "peanuts": ["peanut"],
+    "shellfish": ["shrimp", "prawn", "crab", "lobster", "mussel", "clam", "oyster", "scallop"],
+    "fish": ["fish", "salmon", "cod", "tuna", "anchovy", "sardine"],
+    "eggs": ["egg"],
+    "soy": ["soy", "tofu", "edamame", "miso"]
+  },
+  "diets": {
+    "vegetarian": ["chicken", "beef", "pork", "lamb", "bacon", "ham", "meat", "fish", "cod", "salmon", "tuna", "shrimp", "prawn", "mussel", "anchovy"],
+    "vegan": ["chicken", "beef", "pork", "lamb", "bacon", "ham", "meat", "fish", "cod", "salmon", "tuna", "shrimp", "prawn", "mussel", "anchovy", "milk", "butter", "cheese", "cream", "yogurt", "feta", "parmesan", "mozzarella", "halloumi", "egg", "honey", "mayonnaise"],
+    "pescatarian": ["chicken", "beef", "pork", "lamb", "bacon", "ham", "meat"],
+    "gluten_free": ["flour", "bread", "pasta", "tortilla", "noodle", "barley", "rye", "couscous", "cracker"],
+    "dairy_free": ["milk", "butter", "cheese", "cream", "yogurt", "feta", "parmesan", "mozzarella", "halloumi"]
+  }
+}

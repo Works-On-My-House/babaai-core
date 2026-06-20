@@ -96,6 +96,30 @@ public class JsonConfigService {
         return result;
     }
 
+    private Map<String, Object> dietaryRulesConfig() {
+        return loadObject(appProperties.getConfig().getDietaryRulesPath());
+    }
+
+    /** Allergen name -> lowercase ingredient keywords that mark a recipe unsafe for that allergen. */
+    public Map<String, List<String>> allergenKeywords() {
+        return toKeywordMap(dietaryRulesConfig().get("allergens"));
+    }
+
+    /** Dietary tag -> lowercase ingredient keywords a recipe must NOT contain to satisfy that diet. */
+    public Map<String, List<String>> dietExclusions() {
+        return toKeywordMap(dietaryRulesConfig().get("diets"));
+    }
+
+    private Map<String, List<String>> toKeywordMap(Object value) {
+        Map<String, List<String>> result = new HashMap<>();
+        if (value instanceof Map<?, ?> map) {
+            map.forEach((key, val) -> result.put(
+                    String.valueOf(key).strip().toLowerCase(),
+                    toStringList(val).stream().map(s -> s.strip().toLowerCase()).toList()));
+        }
+        return result;
+    }
+
     public String defaultIngredientCategoryName() {
         Object value = ingredientCategoriesConfig().get("default_category");
         if (value != null) {

@@ -15,6 +15,7 @@ public class AppProperties {
     private final Defaults defaults = new Defaults();
     private final Config config = new Config();
     private final Cache cache = new Cache();
+    private final Suggestions suggestions = new Suggestions();
 
     public Jwt getJwt() {
         return jwt;
@@ -42,6 +43,10 @@ public class AppProperties {
 
     public Cache getCache() {
         return cache;
+    }
+
+    public Suggestions getSuggestions() {
+        return suggestions;
     }
 
     public static class Jwt {
@@ -201,6 +206,7 @@ public class AppProperties {
         private String appDefaultsPath = "classpath:config/app_defaults.json";
         private String recipeCategoriesPath = "classpath:config/recipe_categories.json";
         private String ingredientNutritionPath = "classpath:config/ingredient_nutrition.json";
+        private String dietaryRulesPath = "classpath:config/dietary_rules.json";
 
         public String getIngredientCategoriesPath() {
             return ingredientCategoriesPath;
@@ -248,6 +254,125 @@ public class AppProperties {
 
         public void setIngredientNutritionPath(String ingredientNutritionPath) {
             this.ingredientNutritionPath = ingredientNutritionPath;
+        }
+
+        public String getDietaryRulesPath() {
+            return dietaryRulesPath;
+        }
+
+        public void setDietaryRulesPath(String dietaryRulesPath) {
+            this.dietaryRulesPath = dietaryRulesPath;
+        }
+    }
+
+    /** Daily personalized suggestion engine config (869dr0a4d) — weights, windows, schedule. */
+    public static class Suggestions {
+        private boolean schedulerEnabled = true;
+        private String cron = "0 0 6 * * *";
+        private int dailyLimit = 6;
+        private int expirySoonDays = 3;
+        private int recencyDays = 3;
+        private final Weights weights = new Weights();
+
+        public boolean isSchedulerEnabled() {
+            return schedulerEnabled;
+        }
+
+        public void setSchedulerEnabled(boolean schedulerEnabled) {
+            this.schedulerEnabled = schedulerEnabled;
+        }
+
+        public String getCron() {
+            return cron;
+        }
+
+        public void setCron(String cron) {
+            this.cron = cron;
+        }
+
+        public int getDailyLimit() {
+            return dailyLimit;
+        }
+
+        public void setDailyLimit(int dailyLimit) {
+            this.dailyLimit = dailyLimit;
+        }
+
+        public int getExpirySoonDays() {
+            return expirySoonDays;
+        }
+
+        public void setExpirySoonDays(int expirySoonDays) {
+            this.expirySoonDays = expirySoonDays;
+        }
+
+        public int getRecencyDays() {
+            return recencyDays;
+        }
+
+        public void setRecencyDays(int recencyDays) {
+            this.recencyDays = recencyDays;
+        }
+
+        public Weights getWeights() {
+            return weights;
+        }
+    }
+
+    public static class Weights {
+        private double pantryMatch = 1.0;
+        private double expirySoon = 30.0;
+        private double preference = 15.0;
+        private double dislike = 20.0;
+        private double favorite = 10.0;
+        private double recency = 12.0;
+
+        public double getPantryMatch() {
+            return pantryMatch;
+        }
+
+        public void setPantryMatch(double pantryMatch) {
+            this.pantryMatch = pantryMatch;
+        }
+
+        public double getExpirySoon() {
+            return expirySoon;
+        }
+
+        public void setExpirySoon(double expirySoon) {
+            this.expirySoon = expirySoon;
+        }
+
+        public double getPreference() {
+            return preference;
+        }
+
+        public void setPreference(double preference) {
+            this.preference = preference;
+        }
+
+        public double getDislike() {
+            return dislike;
+        }
+
+        public void setDislike(double dislike) {
+            this.dislike = dislike;
+        }
+
+        public double getFavorite() {
+            return favorite;
+        }
+
+        public void setFavorite(double favorite) {
+            this.favorite = favorite;
+        }
+
+        public double getRecency() {
+            return recency;
+        }
+
+        public void setRecency(double recency) {
+            this.recency = recency;
         }
     }
 

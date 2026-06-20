@@ -4,6 +4,7 @@ import com.babaai.core.config.AppProperties;
 import com.babaai.core.domain.User;
 import com.babaai.core.dto.RecipeDtos;
 import com.babaai.core.security.SecurityUtils;
+import com.babaai.core.service.DailySuggestionService;
 import com.babaai.core.service.RecipeService;
 import jakarta.validation.Valid;
 import java.time.LocalDate;
@@ -24,10 +25,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class RecipeController {
 
     private final RecipeService recipeService;
+    private final DailySuggestionService dailySuggestionService;
     private final AppProperties appProperties;
 
-    public RecipeController(RecipeService recipeService, AppProperties appProperties) {
+    public RecipeController(
+            RecipeService recipeService,
+            DailySuggestionService dailySuggestionService,
+            AppProperties appProperties
+    ) {
         this.recipeService = recipeService;
+        this.dailySuggestionService = dailySuggestionService;
         this.appProperties = appProperties;
     }
 
@@ -57,6 +64,16 @@ public class RecipeController {
     @GetMapping("/daily")
     public RecipeDtos.DailyPicksResponse daily(@RequestParam(defaultValue = "4") int limit) {
         return recipeService.dailyPicks(SecurityUtils.requireUser().getId(), LocalDate.now(), limit);
+    }
+
+    /**
+     * Personalized "Today for you" set (869dr0a4d): pantry + expiry + taste-profile aware, persisted
+     * per user/day. Generated lazily on first read of the day if the scheduled job hasn't run yet.
+     */
+    @GetMapping("/today")
+    public RecipeDtos.DailyPicksResponse today(@RequestParam(required = false) Integer limit) {
+        int size = limit != null ? limit : appProperties.getSuggestions().getDailyLimit();
+        return dailySuggestionService.today(SecurityUtils.requireUser().getId(), LocalDate.now(), size);
     }
 
     @GetMapping("/favorites")
