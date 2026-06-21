@@ -38,6 +38,19 @@ public class UnitConversion {
         return null;
     }
 
+    /**
+     * Converts a base-family amount (grams / ml / count) back into the given unit, or null if the
+     * unit is unknown. Inverse of {@link #toBaseQuantity}; used to write a decremented pantry quantity
+     * back in its original unit (869dtvyct).
+     */
+    public Double fromBaseAmount(double baseAmount, String unit) {
+        BaseQuantity perUnit = toBaseQuantity(1, unit);
+        if (perUnit == null || perUnit.amount() == 0) {
+            return null;
+        }
+        return baseAmount / perUnit.amount();
+    }
+
     public Boolean isSufficient(double requiredQuantity, String requiredUnit, double availableQuantity, String availableUnit) {
         BaseQuantity required = toBaseQuantity(requiredQuantity, requiredUnit);
         BaseQuantity available = toBaseQuantity(availableQuantity, availableUnit);
