@@ -1,6 +1,7 @@
 package com.babaai.core.repository;
 
 import com.babaai.core.domain.Notification;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -11,6 +12,10 @@ import org.springframework.data.jpa.repository.Query;
 public interface NotificationRepository extends JpaRepository<Notification, UUID> {
 
     List<Notification> findByUserIdOrderByCreatedAtDesc(UUID userId);
+
+    // Idempotency guard for the nightly digest: has this user already had a notification of this
+    // type since the given instant (start of today)?
+    boolean existsByUserIdAndTypeAndCreatedAtGreaterThanEqual(UUID userId, String type, Instant createdAt);
 
     Optional<Notification> findByIdAndUserId(UUID id, UUID userId);
 

@@ -187,6 +187,24 @@ public final class RecipeDtos {
     ) {
     }
 
+    /** A recipe that rescues one or more soon-to-expire pantry items (869dtvycn). */
+    public record RescueItemResponse(
+            RecipeResponse recipe,
+            @JsonProperty("match_percent") double matchPercent,
+            @JsonProperty("can_prepare") boolean canPrepare,
+            @JsonProperty("rescued_ingredients") List<String> rescuedIngredients,
+            @JsonProperty("missing_ingredients") List<String> missingIngredients
+    ) {
+    }
+
+    public record RescueResponse(
+            List<RescueItemResponse> items,
+            @JsonProperty("expiring_ingredients") List<String> expiringIngredients,
+            @JsonProperty("generated_for") LocalDate generatedFor,
+            String message
+    ) {
+    }
+
     public record RecipeIngredientInput(
             @JsonProperty("product_name") String productName,
             double quantity,
