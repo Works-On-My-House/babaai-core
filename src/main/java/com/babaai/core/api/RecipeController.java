@@ -8,6 +8,7 @@ import com.babaai.core.security.SecurityUtils;
 import com.babaai.core.service.CookedService;
 import com.babaai.core.service.DailySuggestionService;
 import com.babaai.core.service.RecipeService;
+import com.babaai.core.service.RescueService;
 import jakarta.validation.Valid;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -28,17 +29,20 @@ public class RecipeController {
 
     private final RecipeService recipeService;
     private final DailySuggestionService dailySuggestionService;
+    private final RescueService rescueService;
     private final CookedService cookedService;
     private final AppProperties appProperties;
 
     public RecipeController(
             RecipeService recipeService,
             DailySuggestionService dailySuggestionService,
+            RescueService rescueService,
             CookedService cookedService,
             AppProperties appProperties
     ) {
         this.recipeService = recipeService;
         this.dailySuggestionService = dailySuggestionService;
+        this.rescueService = rescueService;
         this.cookedService = cookedService;
         this.appProperties = appProperties;
     }
@@ -79,6 +83,16 @@ public class RecipeController {
     public RecipeDtos.DailyPicksResponse today(@RequestParam(required = false) Integer limit) {
         int size = limit != null ? limit : appProperties.getSuggestions().getDailyLimit();
         return dailySuggestionService.today(SecurityUtils.requireUser().getId(), LocalDate.now(), size);
+    }
+
+    /**
+     * Rescue Mode (869dtvycn): recipes that use pantry items expiring soon, ranked by how many they
+     * rescue. The waste-reduction "use it up" surface.
+     */
+    @GetMapping("/rescue")
+    public RecipeDtos.RescueResponse rescue(@RequestParam(required = false) Integer limit) {
+        int size = limit != null ? limit : appProperties.getRescue().getLimit();
+        return rescueService.rescue(SecurityUtils.requireUser().getId(), LocalDate.now(), size);
     }
 
     /**
