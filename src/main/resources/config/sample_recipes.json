@@ -30,7 +30,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chicken Stir Fry",
@@ -62,7 +63,8 @@
           "quantity": 200,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Greek Salad",
@@ -94,7 +96,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Scrambled Eggs",
@@ -121,7 +124,8 @@
           "quantity": 1,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Pancakes",
@@ -153,7 +157,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Beef Stew",
@@ -185,7 +190,8 @@
           "quantity": 2,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Vegetable Soup",
@@ -217,7 +223,8 @@
           "quantity": 2,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Grilled Cheese Sandwich",
@@ -239,7 +246,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Fried Rice",
@@ -271,7 +279,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Cheese Omelette",
@@ -298,7 +307,8 @@
           "quantity": 30,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Pasta Carbonara",
@@ -330,7 +340,8 @@
           "quantity": 1,
           "unit": "clove"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Mushroom Risotto",
@@ -362,7 +373,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chocolate Chip Cookies",
@@ -394,7 +406,8 @@
           "quantity": 150,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 24
     },
     {
       "name": "Classic Pancakes with Honey",
@@ -426,7 +439,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Banana Bread",
@@ -458,7 +472,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 8
     },
     {
       "name": "Chocolate Mug Cake",
@@ -490,7 +505,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Chicken Tacos",
@@ -522,7 +538,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Beef Burrito Bowl",
@@ -554,7 +571,8 @@
           "quantity": 80,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Guacamole",
@@ -586,7 +604,8 @@
           "quantity": 1,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chicken Quesadilla",
@@ -613,7 +632,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Vegetarian Enchiladas",
@@ -645,7 +665,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Fish Tacos with Slaw",
@@ -677,7 +698,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Mexican Rice",
@@ -709,7 +731,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Pico de Gallo",
@@ -736,7 +759,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Pork Carnitas Tacos",
@@ -768,7 +792,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Bean and Cheese Nachos",
@@ -795,7 +820,8 @@
           "quantity": 2,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Shrimp Fajitas",
@@ -827,7 +853,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chili con Carne",
@@ -859,7 +886,8 @@
           "quantity": 3,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Grilled Chicken Skewers",
@@ -891,7 +919,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "BBQ Pulled Pork",
@@ -918,7 +947,8 @@
           "quantity": 200,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Grilled Salmon",
@@ -945,7 +975,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Beef Burger",
@@ -977,7 +1008,8 @@
           "quantity": 4,
           "unit": "slices"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Grilled Vegetable Platter",
@@ -1009,7 +1041,8 @@
           "quantity": 2,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Lamb Chops with Rosemary",
@@ -1036,7 +1069,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "BBQ Chicken Wings",
@@ -1063,7 +1097,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Grilled Halloumi",
@@ -1090,7 +1125,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Pork Ribs",
@@ -1117,7 +1153,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Grilled Corn on the Cob",
@@ -1144,7 +1181,8 @@
           "quantity": 1,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Garlic Butter Shrimp",
@@ -1176,7 +1214,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Baked Cod with Herbs",
@@ -1203,7 +1242,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Seafood Paella",
@@ -1235,7 +1275,8 @@
           "quantity": 3,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Tuna Salad Sandwich",
@@ -1267,7 +1308,8 @@
           "quantity": 4,
           "unit": "leaves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Lemon Herb Salmon",
@@ -1294,7 +1336,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Fish and Chips",
@@ -1321,7 +1364,8 @@
           "quantity": 500,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Shrimp Fried Rice",
@@ -1353,7 +1397,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Mussels in White Wine",
@@ -1380,7 +1425,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Fresh Lemonade",
@@ -1407,7 +1453,8 @@
           "quantity": 10,
           "unit": "leaves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Iced Coffee",
@@ -1434,7 +1481,8 @@
           "quantity": 1,
           "unit": "cup"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Berry Smoothie",
@@ -1461,7 +1509,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Hot Chocolate",
@@ -1488,7 +1537,8 @@
           "quantity": 50,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Mango Lassi",
@@ -1515,7 +1565,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Green Smoothie",
@@ -1542,7 +1593,8 @@
           "quantity": 200,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Penne Arrabbiata",
@@ -1569,7 +1621,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Lasagna",
@@ -1596,7 +1649,8 @@
           "quantity": 300,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Pesto Pasta",
@@ -1628,7 +1682,8 @@
           "quantity": 2,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Spaghetti Bolognese",
@@ -1660,7 +1715,8 @@
           "quantity": 2,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Mac and Cheese",
@@ -1687,7 +1743,8 @@
           "quantity": 40,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Lemon Garlic Pasta",
@@ -1719,7 +1776,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Spinach Ricotta Ravioli",
@@ -1746,7 +1804,8 @@
           "quantity": 40,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Seafood Linguine",
@@ -1773,7 +1832,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Pad Thai",
@@ -1805,7 +1865,8 @@
           "quantity": 30,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chicken Teriyaki",
@@ -1837,7 +1898,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Vegetable Dumplings",
@@ -1864,7 +1926,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Beef Pho",
@@ -1891,7 +1954,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Sweet and Sour Pork",
@@ -1923,7 +1987,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Miso Soup",
@@ -1950,7 +2015,8 @@
           "quantity": 2,
           "unit": "stalks"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Korean Bibimbap",
@@ -1982,7 +2048,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Spring Rolls",
@@ -2009,7 +2076,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Thai Green Curry",
@@ -2036,7 +2104,8 @@
           "quantity": 250,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Sushi Rolls",
@@ -2063,7 +2132,8 @@
           "quantity": 4,
           "unit": "sheets"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Caesar Salad",
@@ -2095,7 +2165,8 @@
           "quantity": 1,
           "unit": "clove"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Caprese Salad",
@@ -2122,7 +2193,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Quinoa Salad",
@@ -2154,7 +2226,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Coleslaw",
@@ -2181,7 +2254,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Spinach Strawberry Salad",
@@ -2208,7 +2282,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Tuna Nicoise Salad",
@@ -2240,7 +2315,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chickpea Salad",
@@ -2272,7 +2348,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Avocado Tomato Salad",
@@ -2299,7 +2376,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "French Toast",
@@ -2331,7 +2409,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Avocado Toast",
@@ -2358,7 +2437,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Overnight Oats",
@@ -2385,7 +2465,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Shakshuka",
@@ -2417,7 +2498,8 @@
           "quantity": 4,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Breakfast Burrito",
@@ -2444,7 +2526,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Granola Bowl",
@@ -2471,7 +2554,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Smoked Salmon Bagel",
@@ -2498,7 +2582,8 @@
           "quantity": 0.25,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Egg Muffins",
@@ -2525,7 +2610,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Waffles",
@@ -2557,7 +2643,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Greek Yogurt Parfait",
@@ -2584,7 +2671,8 @@
           "quantity": 80,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 2
     },
     {
       "name": "Roast Chicken",
@@ -2616,7 +2704,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Shepherd's Pie",
@@ -2648,7 +2737,8 @@
           "quantity": 40,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chicken Parmesan",
@@ -2680,7 +2770,8 @@
           "quantity": 2,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Beef Lasagna",
@@ -2712,7 +2803,8 @@
           "quantity": 300,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Stuffed Bell Peppers",
@@ -2739,7 +2831,8 @@
           "quantity": 200,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Pork Schnitzel",
@@ -2771,7 +2864,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Vegetable Curry",
@@ -2803,7 +2897,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Meatballs in Tomato Sauce",
@@ -2835,7 +2930,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chicken Tikka Masala",
@@ -2867,7 +2963,8 @@
           "quantity": 250,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Eggplant Parmesan",
@@ -2894,7 +2991,8 @@
           "quantity": 80,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Fish Pie",
@@ -2926,7 +3024,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Beef Tacos",
@@ -2958,7 +3057,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Ratatouille",
@@ -2990,7 +3090,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Honey Garlic Pork",
@@ -3022,7 +3123,8 @@
           "quantity": 250,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Tomato Basil Soup",
@@ -3054,7 +3156,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Chicken Noodle Soup",
@@ -3086,7 +3189,8 @@
           "quantity": 1,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Lentil Soup",
@@ -3118,7 +3222,8 @@
           "quantity": 1,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Minestrone",
@@ -3150,7 +3255,8 @@
           "quantity": 2,
           "unit": "stalks"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Cream of Mushroom Soup",
@@ -3182,7 +3288,8 @@
           "quantity": 2,
           "unit": "cloves"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Butternut Squash Soup",
@@ -3209,7 +3316,8 @@
           "quantity": 30,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "French Onion Soup",
@@ -3241,7 +3349,8 @@
           "quantity": 40,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Gazpacho",
@@ -3273,7 +3382,8 @@
           "quantity": 1,
           "unit": "clove"
         }
-      ]
+      ],
+      "servings": 4
     },
     {
       "name": "Hummus",
@@ -3305,7 +3415,8 @@
           "quantity": 2,
           "unit": "pcs"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Stuffed Mushrooms",
@@ -3337,7 +3448,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Bruschetta",
@@ -3369,7 +3481,8 @@
           "quantity": 3,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Deviled Eggs",
@@ -3396,7 +3509,8 @@
           "quantity": 0.5,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Cheese Quesadilla",
@@ -3418,7 +3532,8 @@
           "quantity": 20,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Popcorn",
@@ -3445,7 +3560,8 @@
           "quantity": 2,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Caprese Skewers",
@@ -3472,7 +3588,8 @@
           "quantity": 1,
           "unit": "tbsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Pita Chips",
@@ -3499,7 +3616,8 @@
           "quantity": 0.5,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 1
     },
     {
       "name": "Apple Pie",
@@ -3531,7 +3649,8 @@
           "quantity": 1,
           "unit": "tsp"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Tiramisu",
@@ -3563,7 +3682,8 @@
           "quantity": 250,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Brownies",
@@ -3595,7 +3715,8 @@
           "quantity": 150,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Cheesecake",
@@ -3627,7 +3748,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Fruit Salad",
@@ -3659,7 +3781,8 @@
           "quantity": 5,
           "unit": "leaves"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Lemon Bars",
@@ -3691,7 +3814,8 @@
           "quantity": 120,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Rice Pudding",
@@ -3718,7 +3842,8 @@
           "quantity": 20,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Chocolate Mousse",
@@ -3745,7 +3870,8 @@
           "quantity": 50,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Strawberry Shortcake",
@@ -3777,7 +3903,8 @@
           "quantity": 80,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Cinnamon Rolls",
@@ -3809,7 +3936,8 @@
           "quantity": 200,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Panna Cotta",
@@ -3836,7 +3964,8 @@
           "quantity": 100,
           "unit": "g"
         }
-      ]
+      ],
+      "servings": 6
     },
     {
       "name": "Peach Cobbler",
@@ -3868,7 +3997,8 @@
           "quantity": 100,
           "unit": "ml"
         }
-      ]
+      ],
+      "servings": 6
     }
   ]
 }

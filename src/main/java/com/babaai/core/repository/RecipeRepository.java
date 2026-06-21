@@ -14,13 +14,19 @@ public interface RecipeRepository extends JpaRepository<Recipe, UUID>, JpaSpecif
     @EntityGraph(attributePaths = "ingredients")
     Optional<Recipe> findWithIngredientsById(UUID id);
 
+    // Verification gating (869dqrre0): the public detail path resolves only verified recipes;
+    // unverified recipes 404.
     @EntityGraph(attributePaths = "ingredients")
-    List<Recipe> findAllByOrderByNameAsc();
+    Optional<Recipe> findWithIngredientsByIdAndVerifiedTrue(UUID id);
+
+    // Feeds the catalog cache -> featured / dailyPicks / suggestions / today all become verified-only.
+    @EntityGraph(attributePaths = "ingredients")
+    List<Recipe> findByVerifiedTrueOrderByNameAsc();
 
     boolean existsByName(String name);
 
     boolean existsByNameIgnoreCase(String name);
 
-    @Query("select distinct r.category from Recipe r order by r.category asc")
-    List<String> findDistinctCategories();
+    @Query("select distinct r.category from Recipe r where r.verified = true order by r.category asc")
+    List<String> findDistinctVerifiedCategories();
 }

@@ -51,6 +51,15 @@ babaai:
     sample-recipes-path: ${SEED_RECIPES_CONFIG_PATH:classpath:config/sample_recipes.json}
     app-defaults-path: ${APP_DEFAULTS_CONFIG_PATH:classpath:config/app_defaults.json}
     recipe-categories-path: ${RECIPE_CATEGORIES_CONFIG_PATH:classpath:config/recipe_categories.json}
+    ingredient-nutrition-path: ${INGREDIENT_NUTRITION_CONFIG_PATH:classpath:config/ingredient_nutrition.json}
+    dietary-rules-path: ${DIETARY_RULES_CONFIG_PATH:classpath:config/dietary_rules.json}
+  suggestions:
+    # Daily personalized suggestion engine (869dr0a4d). Deterministic, free-tier, no LLM.
+    scheduler-enabled: ${SUGGESTIONS_SCHEDULER_ENABLED:true}
+    cron: ${SUGGESTIONS_CRON:0 0 6 * * *}
+    daily-limit: ${SUGGESTIONS_DAILY_LIMIT:6}
+    expiry-soon-days: ${SUGGESTIONS_EXPIRY_SOON_DAYS:3}
+    recency-days: ${SUGGESTIONS_RECENCY_DAYS:3}
   cache:
     enabled: ${CACHE_ENABLED:true}
     default-spec:

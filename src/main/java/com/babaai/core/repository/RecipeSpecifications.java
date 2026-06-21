@@ -11,6 +11,11 @@ public final class RecipeSpecifications {
     private RecipeSpecifications() {
     }
 
+    /** Verification gating (869dqrre0): only verified recipes are listed publicly. */
+    public static Specification<Recipe> verified() {
+        return (root, query, cb) -> cb.isTrue(root.get("verified"));
+    }
+
     public static Specification<Recipe> search(String search, String category) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();

@@ -44,6 +44,7 @@ public class RecipeService {
     private final AiServiceClient aiServiceClient;
     private final AppProperties appProperties;
     private final JsonConfigService jsonConfigService;
+    private final NutritionCalculator nutritionCalculator;
 
     public RecipeService(
             RecipeRepository recipeRepository,
@@ -54,7 +55,8 @@ public class RecipeService {
             MatchingEngine matchingEngine,
             AiServiceClient aiServiceClient,
             AppProperties appProperties,
-            JsonConfigService jsonConfigService
+            JsonConfigService jsonConfigService,
+            NutritionCalculator nutritionCalculator
     ) {
         this.recipeRepository = recipeRepository;
         this.recipeCatalogCache = recipeCatalogCache;
@@ -65,13 +67,20 @@ public class RecipeService {
         this.aiServiceClient = aiServiceClient;
         this.appProperties = appProperties;
         this.jsonConfigService = jsonConfigService;
+        this.nutritionCalculator = nutritionCalculator;
+    }
+
+    /** Recipes are trusted (and therefore displayed) only when sourced from a seed or a curated import. */
+    public static boolean verifiedFor(String sourceType) {
+        return "seed".equalsIgnoreCase(sourceType) || "import".equalsIgnoreCase(sourceType);
     }
 
     @Transactional(readOnly = true)
     public RecipeDtos.RecipeListResponse list(int page, int pageSize, String search, String category, UUID userId) {
         int safePage = Math.max(1, page);
         int safePageSize = Math.max(1, pageSize);
-        Specification<Recipe> spec = RecipeSpecifications.search(search, category);
+        Specification<Recipe> spec = RecipeSpecifications.search(search, category)
+                .and(RecipeSpecifications.verified());
         Page<Recipe> result = recipeRepository.findAll(
                 spec,
                 PageRequest.of(safePage - 1, safePageSize, Sort.by("name"))
@@ -88,14 +97,14 @@ public class RecipeService {
 
     @Transactional(readOnly = true)
     public RecipeDtos.RecipeResponse get(UUID recipeId, UUID userId) {
-        Recipe recipe = recipeRepository.findWithIngredientsById(recipeId)
+        Recipe recipe = recipeRepository.findWithIngredientsByIdAndVerifiedTrue(recipeId)
                 .orElseThrow(() -> new NotFoundException("Recipe not found"));
         return mapRecipe(recipe, favoriteView(List.of(recipe), userId));
     }
 
     @Transactional
     public RecipeDtos.RecipeResponse recordView(UUID recipeId, UUID userId) {
-        Recipe recipe = recipeRepository.findWithIngredientsById(recipeId)
+        Recipe recipe = recipeRepository.findWithIngredientsByIdAndVerifiedTrue(recipeId)
                 .orElseThrow(() -> new NotFoundException("Recipe not found"));
         recipe.setViewCount(recipe.getViewCount() + 1);
         recipeRepository.save(recipe);
@@ -113,7 +122,7 @@ public class RecipeService {
                 ordered.add(category);
             }
         }
-        List<String> used = new ArrayList<>(recipeRepository.findDistinctCategories());
+        List<String> used = new ArrayList<>(recipeRepository.findDistinctVerifiedCategories());
         used.sort(Comparator.naturalOrder());
         for (String category : used) {
             if (category != null && !category.isBlank() && seen.add(category)) {
@@ -360,21 +369,88 @@ public class RecipeService {
         recipe.setPreparation(request.preparation());
         recipe.setSourceType("crawler");
         recipe.setSourceUrl(request.sourceUrl());
-        if (request.ingredients() != null) {
-            for (RecipeDtos.RecipeIngredientInput input : request.ingredients()) {
-                RecipeIngredient line = new RecipeIngredient();
-                line.setRecipe(recipe);
-                line.setProductName(input.productName());
-                line.setQuantity(input.quantity());
-                line.setUnit(input.unit() != null ? input.unit() : "piece");
-                recipe.getIngredients().add(line);
-            }
-        }
+        // Crawled recipes stay unverified (verifiedFor("crawler") == false) until an admin verifies.
+        recipe.setVerified(verifiedFor(recipe.getSourceType()));
+        addIngredients(recipe, request.ingredients());
+        applyNutrition(recipe, null);
         recipe = recipeRepository.save(recipe);
         // New recipe changes the catalog set -> drop the cached snapshot once this tx commits.
         recipeCatalogCache.evictAfterCommit();
         aiServiceClient.reindexRecipe(recipe.getId());
         return new RecipeDtos.RecipeIngestResponse(recipe.getId(), recipe.getName(), true);
+    }
+
+    /**
+     * Bulk file-import (869dqrre0). Created recipes get {@code source_type=import} -> verified=true,
+     * nutrition computed (or taken from inline values), and the catalog cache is evicted once. Dedup
+     * by case-insensitive name mirrors {@link #ingest}. Items missing a name or preparation are skipped.
+     */
+    @Transactional
+    public RecipeDtos.RecipeImportResponse importRecipes(RecipeDtos.RecipeImportRequest request) {
+        List<String> createdNames = new ArrayList<>();
+        List<String> skippedNames = new ArrayList<>();
+        if (request.recipes() != null) {
+            for (RecipeDtos.RecipeImportItem item : request.recipes()) {
+                String name = item.name() != null ? item.name().strip() : "";
+                if (name.isEmpty() || item.preparation() == null || item.preparation().isBlank()) {
+                    skippedNames.add(name.isEmpty() ? "(unnamed)" : name);
+                    continue;
+                }
+                if (recipeRepository.existsByNameIgnoreCase(name)) {
+                    skippedNames.add(name);
+                    continue;
+                }
+                Recipe recipe = new Recipe();
+                recipe.setName(name);
+                recipe.setCategory(item.category() != null && !item.category().isBlank() ? item.category() : "Other");
+                recipe.setPreparation(item.preparation());
+                recipe.setSourceType("import");
+                recipe.setSourceUrl(item.sourceUrl());
+                recipe.setServings(item.servings());
+                recipe.setVerified(verifiedFor(recipe.getSourceType()));
+                addIngredients(recipe, item.ingredients());
+                applyNutrition(recipe, item.nutrition());
+                recipe = recipeRepository.save(recipe);
+                createdNames.add(name);
+                aiServiceClient.reindexRecipe(recipe.getId());
+            }
+        }
+        if (!createdNames.isEmpty()) {
+            recipeCatalogCache.evictAfterCommit();
+        }
+        return new RecipeDtos.RecipeImportResponse(createdNames.size(), skippedNames.size(), createdNames, skippedNames);
+    }
+
+    private void addIngredients(Recipe recipe, List<RecipeDtos.RecipeIngredientInput> inputs) {
+        if (inputs == null) {
+            return;
+        }
+        for (RecipeDtos.RecipeIngredientInput input : inputs) {
+            RecipeIngredient line = new RecipeIngredient();
+            line.setRecipe(recipe);
+            line.setProductName(input.productName());
+            line.setQuantity(input.quantity());
+            line.setUnit(input.unit() != null ? input.unit() : "piece");
+            recipe.getIngredients().add(line);
+        }
+    }
+
+    /** Sets recipe-total nutrition: trusts inline values when supplied, else computes from ingredients. */
+    private void applyNutrition(Recipe recipe, RecipeDtos.NutritionInput inline) {
+        if (inline != null && inline.hasAnyValue()) {
+            recipe.setCalories(inline.calories());
+            recipe.setProteinG(inline.proteinG());
+            recipe.setCarbsG(inline.carbsG());
+            recipe.setFatG(inline.fatG());
+            recipe.setNutritionComplete(true);
+            return;
+        }
+        NutritionCalculator.Nutrition nutrition = nutritionCalculator.computeFromIngredients(recipe.getIngredients());
+        recipe.setCalories(nutrition.calories());
+        recipe.setProteinG(nutrition.proteinG());
+        recipe.setCarbsG(nutrition.carbsG());
+        recipe.setFatG(nutrition.fatG());
+        recipe.setNutritionComplete(nutrition.complete());
     }
 
     private RecipeDtos.DailyPicksResponse popularFallback(
