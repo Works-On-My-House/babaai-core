@@ -2,8 +2,10 @@ package com.babaai.core.api;
 
 import com.babaai.core.config.AppProperties;
 import com.babaai.core.domain.User;
+import com.babaai.core.dto.CookedDtos;
 import com.babaai.core.dto.RecipeDtos;
 import com.babaai.core.security.SecurityUtils;
+import com.babaai.core.service.CookedService;
 import com.babaai.core.service.DailySuggestionService;
 import com.babaai.core.service.RecipeService;
 import jakarta.validation.Valid;
@@ -26,15 +28,18 @@ public class RecipeController {
 
     private final RecipeService recipeService;
     private final DailySuggestionService dailySuggestionService;
+    private final CookedService cookedService;
     private final AppProperties appProperties;
 
     public RecipeController(
             RecipeService recipeService,
             DailySuggestionService dailySuggestionService,
+            CookedService cookedService,
             AppProperties appProperties
     ) {
         this.recipeService = recipeService;
         this.dailySuggestionService = dailySuggestionService;
+        this.cookedService = cookedService;
         this.appProperties = appProperties;
     }
 
@@ -74,6 +79,20 @@ public class RecipeController {
     public RecipeDtos.DailyPicksResponse today(@RequestParam(required = false) Integer limit) {
         int size = limit != null ? limit : appProperties.getSuggestions().getDailyLimit();
         return dailySuggestionService.today(SecurityUtils.requireUser().getId(), LocalDate.now(), size);
+    }
+
+    /**
+     * "Cooked it" (869dtvyct): deducts the recipe's ingredients from the user's pantry and logs the
+     * cook. Optional {@code servings} scales the deduction. Returns what was consumed + any lines that
+     * couldn't be auto-deducted.
+     */
+    @PostMapping("/{recipeId}/cooked")
+    public CookedDtos.CookedResponse cooked(
+            @PathVariable UUID recipeId,
+            @RequestBody(required = false) CookedDtos.CookedRequest request
+    ) {
+        Integer servings = request != null ? request.servings() : null;
+        return cookedService.markCooked(SecurityUtils.requireUser().getId(), recipeId, servings);
     }
 
     @GetMapping("/favorites")
