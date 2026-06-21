@@ -5,12 +5,14 @@ import com.babaai.core.domain.Ingredient;
 import com.babaai.core.domain.IngredientCategory;
 import com.babaai.core.domain.Notification;
 import com.babaai.core.domain.Recipe;
+import com.babaai.core.domain.RecipeImport;
 import com.babaai.core.domain.RecipeIngredient;
 import com.babaai.core.domain.SuggestionHistory;
 import com.babaai.core.domain.User;
 import com.babaai.core.dto.IngredientDtos;
 import com.babaai.core.dto.NotificationDtos;
 import com.babaai.core.dto.RecipeDtos;
+import com.babaai.core.dto.RecipeImportDtos;
 import com.babaai.core.dto.Dtos;
 import java.util.List;
 
@@ -142,6 +144,21 @@ public final class DtoMapper {
                 history.getAgentLabel(),
                 history.getPreparation(),
                 ingredients
+        );
+    }
+
+    public static RecipeImportDtos.RecipeImportResponse toRecipeImportResponse(RecipeImport recipeImport) {
+        return new RecipeImportDtos.RecipeImportResponse(
+                recipeImport.getId(),
+                recipeImport.getCreatedAt(),
+                recipeImport.getUpdatedAt(),
+                recipeImport.getVersion(),
+                recipeImport.getOriginalFilename(),
+                recipeImport.getContentType(),
+                recipeImport.getSizeBytes(),
+                recipeImport.getStatus(),
+                recipeImport.getReviewNote(),
+                recipeImport.getDecidedAt()
         );
     }
 

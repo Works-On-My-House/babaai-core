@@ -1,7 +1,9 @@
 package com.babaai.core.config;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -16,6 +18,7 @@ public class AppProperties {
     private final Config config = new Config();
     private final Cache cache = new Cache();
     private final Suggestions suggestions = new Suggestions();
+    private final Imports imports = new Imports();
 
     public Jwt getJwt() {
         return jwt;
@@ -47,6 +50,10 @@ public class AppProperties {
 
     public Suggestions getSuggestions() {
         return suggestions;
+    }
+
+    public Imports getImports() {
+        return imports;
     }
 
     public static class Jwt {
@@ -420,6 +427,29 @@ public class AppProperties {
 
         public void setTtl(Duration ttl) {
             this.ttl = ttl;
+        }
+    }
+
+    /** User recipe-import upload limits (869dtx7tj). Accepted content types are TBD: an empty
+     *  allow-list means "accept any" so the format decision can be made later via config. */
+    public static class Imports {
+        private long maxFileSizeBytes = 5L * 1024 * 1024;
+        private List<String> allowedContentTypes = new ArrayList<>();
+
+        public long getMaxFileSizeBytes() {
+            return maxFileSizeBytes;
+        }
+
+        public void setMaxFileSizeBytes(long maxFileSizeBytes) {
+            this.maxFileSizeBytes = maxFileSizeBytes;
+        }
+
+        public List<String> getAllowedContentTypes() {
+            return allowedContentTypes;
+        }
+
+        public void setAllowedContentTypes(List<String> allowedContentTypes) {
+            this.allowedContentTypes = allowedContentTypes != null ? allowedContentTypes : new ArrayList<>();
         }
     }
 }
