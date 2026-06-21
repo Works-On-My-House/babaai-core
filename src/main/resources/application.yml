@@ -21,6 +21,11 @@ spring:
     locations: classpath:db/migration
   jackson:
     property-naming-strategy: SNAKE_CASE
+  servlet:
+    multipart:
+      # Framework hard cap; the friendlier per-file limit is enforced in RecipeImportService.
+      max-file-size: ${IMPORT_MAX_FILE_SIZE:10MB}
+      max-request-size: ${IMPORT_MAX_REQUEST_SIZE:12MB}
 
 babaai:
   jwt:
@@ -60,6 +65,10 @@ babaai:
     daily-limit: ${SUGGESTIONS_DAILY_LIMIT:6}
     expiry-soon-days: ${SUGGESTIONS_EXPIRY_SOON_DAYS:3}
     recency-days: ${SUGGESTIONS_RECENCY_DAYS:3}
+  imports:
+    # Per-file upload limit for user recipe submissions (869dtx7tj). Accepted content types are TBD —
+    # leave allowed-content-types unset (= accept any) until the format decision is made.
+    max-file-size-bytes: ${IMPORT_MAX_FILE_SIZE_BYTES:5242880}
   cache:
     enabled: ${CACHE_ENABLED:true}
     default-spec:
