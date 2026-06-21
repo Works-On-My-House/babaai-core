@@ -69,6 +69,12 @@ babaai:
     # Per-file upload limit for user recipe submissions (869dtx7tj). Accepted content types are TBD —
     # leave allowed-content-types unset (= accept any) until the format decision is made.
     max-file-size-bytes: ${IMPORT_MAX_FILE_SIZE_BYTES:5242880}
+  rescue:
+    # Rescue Mode (869dtvycn) — nightly "use it up" expiry digest + /api/v1/recipes/rescue.
+    scheduler-enabled: ${RESCUE_SCHEDULER_ENABLED:true}
+    cron: ${RESCUE_CRON:0 0 18 * * *}
+    lead-days: ${RESCUE_LEAD_DAYS:3}
+    limit: ${RESCUE_LIMIT:5}
   cache:
     enabled: ${CACHE_ENABLED:true}
     default-spec:

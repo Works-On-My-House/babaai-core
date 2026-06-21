@@ -19,6 +19,7 @@ public class AppProperties {
     private final Cache cache = new Cache();
     private final Suggestions suggestions = new Suggestions();
     private final Imports imports = new Imports();
+    private final Rescue rescue = new Rescue();
 
     public Jwt getJwt() {
         return jwt;
@@ -54,6 +55,10 @@ public class AppProperties {
 
     public Imports getImports() {
         return imports;
+    }
+
+    public Rescue getRescue() {
+        return rescue;
     }
 
     public static class Jwt {
@@ -450,6 +455,46 @@ public class AppProperties {
 
         public void setAllowedContentTypes(List<String> allowedContentTypes) {
             this.allowedContentTypes = allowedContentTypes != null ? allowedContentTypes : new ArrayList<>();
+        }
+    }
+
+    /** Rescue Mode (869dtvycn): nightly expiry digest + "use it up" surface. */
+    public static class Rescue {
+        private boolean schedulerEnabled = true;
+        private String cron = "0 0 18 * * *";
+        private int leadDays = 3;
+        private int limit = 5;
+
+        public boolean isSchedulerEnabled() {
+            return schedulerEnabled;
+        }
+
+        public void setSchedulerEnabled(boolean schedulerEnabled) {
+            this.schedulerEnabled = schedulerEnabled;
+        }
+
+        public String getCron() {
+            return cron;
+        }
+
+        public void setCron(String cron) {
+            this.cron = cron;
+        }
+
+        public int getLeadDays() {
+            return leadDays;
+        }
+
+        public void setLeadDays(int leadDays) {
+            this.leadDays = leadDays;
+        }
+
+        public int getLimit() {
+            return limit;
+        }
+
+        public void setLimit(int limit) {
+            this.limit = limit;
         }
     }
 }
